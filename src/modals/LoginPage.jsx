@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import { Modal } from 'react-bootstrap'
 import Image from 'react-bootstrap/Image';
-import logo from './assets/logo.avif'
+import logo from '../assets/logo.avif'
 import { GrClose } from 'react-icons/Gr'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form';

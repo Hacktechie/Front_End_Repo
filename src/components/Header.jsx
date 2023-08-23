@@ -1,13 +1,13 @@
-import './header.css'
-import logo from './assets/logo.avif'
+import '../stylesheets/header.css'
+import logo from '../assets/logo.avif'
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 import Button from 'react-bootstrap/Button'
 import { FaUserAlt, FaGooglePlay, FaApple } from 'react-icons/Fa'
 import { useState } from 'react'
-import MoviesModal from './MoviesModal'
-import CinemaModal from './CinemaModal'
-import LoginPage from './LoginPage'
+import MoviesModal from '../modals/MoviesModal'
+import CinemaModal from '../modals/CinemaModal'
+import LoginPage from '../modals/LoginPage'
 
 function Header() {
 
