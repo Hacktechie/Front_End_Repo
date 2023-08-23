@@ -1,0 +1,104 @@
+header {
+  height: 92px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-right {
+  align-items: center;
+  gap: 20px;
+}
+
+.c-nav-bar {
+  width: 90%;
+}
+
+.c-navlink {
+  font-size: 20px !important;
+  border-radius: 5px;
+}
+
+.c-navlink:hover {
+  background-color: #E0F0FF;
+}
+
+.c-login-btn {
+  height: 38px;
+  display: flex;
+  align-items: center;
+  background-color: #00baf2;
+  border: none;
+  border-radius: 19px;
+  position: relative;
+  padding-left: 20px;
+  padding-right: 42px;
+}
+
+.profile-icon {
+  height: 36px;
+  width: 36px;
+  display: grid;
+  place-content: center;
+  background-color: #002970;
+  position: absolute;
+  right: 1px;
+  overflow: hidden;
+  padding-top: 10px;
+}
+
+.c-login-btn:hover {
+  background-color: #002970;
+}
+
+.c-login-btn:hover .profile-icon {
+  background-color: #00baf2;
+}
+
+.sml-line {
+  height: 27px;
+  width: 1px;
+  background-color: black;
+}
+
+.store-btn {
+  height: 44px;
+  width: 44px;
+}
+
+/* Movies Modal styels */
+
+.c-modal .modal-content {
+  border-radius: 20px;
+  margin-top: 100px;
+}
+
+.modal-backdrop.show {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* Login Page */
+
+#login-close-btn {
+  position: absolute;
+  right: 20px;
+  background-color: transparent;
+  border: none;
+}
+
+#number-input {
+  height: 55px;
+  border: 1px solid darkgray;
+  border-radius: 8px;
+}
+
+#get-otp-btn {
+  height: 55px;
+  font-size: 16px;
+  font-weight: bold;
+  width: 100%;
+  border-radius: 8px;
+}
