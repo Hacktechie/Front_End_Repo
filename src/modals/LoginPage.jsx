@@ -15,7 +15,8 @@ function LoginPage({ show, hide }) {
     <Modal
       show={show}
       onHide={hide}
-      centered>
+      centered
+      className='c-login-modal'>
 
       <Modal.Header>
         <Image src={logo} alt='logo' height={54} width={108} className='mx-auto' />
@@ -26,16 +27,22 @@ function LoginPage({ show, hide }) {
       </Modal.Header>
 
       <Modal.Body className='px-5'>
-        <p className='h4 fw-semibold my-4'>Login with mobile number</p>
+        <p className='h4 fw-semibold my-4'>Login with Email</p>
 
         <Form>
           <Form.Group controlId="exampleForm.ControlInput1">
             <Form.Control
               type="text"
-              placeholder="Enter mobile number"
+              placeholder="Enter Email"
               className='my-4 fw-bold'
-              id='number-input'
+              id='input'
               // onChange={(e) => setInputValue(e.target.value)}
+            />
+            <Form.Control
+              type="password"
+              placeholder="Password"
+              className='my-4 fw-bold'
+              id='input'
             />
           </Form.Group>
 
@@ -44,7 +51,7 @@ function LoginPage({ show, hide }) {
             type="submit"
             className='text-white'
             id='get-otp-btn'>
-            Get OTP
+            Login
           </Button>
 
         </Form>

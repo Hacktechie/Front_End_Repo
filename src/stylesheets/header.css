@@ -16,7 +16,7 @@ header {
 }
 
 .c-navlink {
-  font-size: 20px !important;
+  font-size: 18px !important;
   border-radius: 5px;
 }
 
@@ -71,6 +71,9 @@ header {
 
 .c-modal .modal-content {
   border-radius: 20px;
+  max-height: 520px;
+  padding-left: 10px;
+  padding-right: 10px;
   margin-top: 100px;
 }
 
@@ -80,7 +83,52 @@ header {
   pointer-events: none;
 }
 
+.modal-grid {
+  display: flex;
+  display: flex;
+  flex-wrap: wrap;
+  max-height: 400px;
+  overflow-y: scroll;
+}
+
+.movies {
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 46%;
+  margin-right: auto;
+}
+
+.movies p {
+  margin: 5px;
+}
+
+.movie-label,
+.cinemas {
+  width: 100%;
+  border-bottom: 1px solid #DCDCDC;
+} 
+
+.cinemas-grid p {
+  font-size: 16px;
+  padding: 0;
+  margin: 0;
+}
+
+.cinemas-grid p,
+.cinemas {
+  display: flex;
+  align-items: center;
+  width: 46%;
+  margin-right: auto;
+}
+
 /* Login Page */
+
+.c-login-modal .modal-content {
+  border-radius: 20px;
+}
 
 #login-close-btn {
   position: absolute;
@@ -89,7 +137,7 @@ header {
   border: none;
 }
 
-#number-input {
+#input {
   height: 55px;
   border: 1px solid darkgray;
   border-radius: 8px;

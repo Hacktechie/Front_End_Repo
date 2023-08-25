@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types'
 import { Modal } from 'react-bootstrap';
 
-function CinemaModal({ show, hide }) {
+function CinemaModal({ show, hide, cinemas }) {
+
   return (
     <Modal
       show={show}
@@ -11,7 +12,17 @@ function CinemaModal({ show, hide }) {
 
       <Modal.Body>
         <h3 className='fw-bold my-4'>Cinemas in Chennai</h3>
-        <p>This is the modal content.</p>
+
+        <div className="modal-grid cinemas-grid">
+          <p className='fw-semibold'>Chennai</p>
+         
+          {cinemas?.map(cinema => (
+            <div key={cinema.id} className='py-3 cinemas'>
+              {cinema.name}
+            </div>
+          ))}
+
+        </div>
       </Modal.Body>
 
     </Modal>
@@ -20,7 +31,8 @@ function CinemaModal({ show, hide }) {
 
 CinemaModal.propTypes = {
   show: PropTypes.bool,
-  hide: PropTypes.func
+  hide: PropTypes.func,
+  cinemas: PropTypes.array
 }
 
 export default CinemaModal;

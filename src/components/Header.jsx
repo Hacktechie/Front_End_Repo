@@ -4,7 +4,7 @@ import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 import Button from 'react-bootstrap/Button'
 import { FaUserAlt, FaGooglePlay, FaApple } from 'react-icons/Fa'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import MoviesModal from '../modals/MoviesModal'
 import CinemaModal from '../modals/CinemaModal'
 import LoginPage from '../modals/LoginPage'
@@ -14,6 +14,28 @@ function Header() {
   const [showMovies, setShowMovies] = useState(false)
   const [showCinema, setShowCinema] = useState(false)
   const [showLoginPage, setShowLoginPage] = useState(false)
+  
+  const [cinemas, setCinemas] = useState([])
+  const [movies, setMovies] = useState([])
+  
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const responseMovies = await fetch('http://localhost:5050/api/movies')
+        const moviesData = await responseMovies.json()
+        setMovies(moviesData)
+        
+        const responseCinemas = await fetch('http://localhost:5050/api/cinemas')
+        const cinemasData = await responseCinemas.json()
+        setCinemas(cinemasData)
+      }
+      catch (err) {
+        console.error('Error fetching data from server', err);
+      }
+    }
+
+    fetchData()
+  }, [])
 
   return (
     <header>
@@ -23,7 +45,7 @@ function Header() {
           <img src={logo} height={54} width={108} alt="logo" />
         </Navbar.Brand>
 
-        <Nav className='fw-semibold ms-5'>
+        <Nav className='fw-semibold gap-3 ms-5'>
 
           <Nav.Link className='c-navlink px-3 py-2' style={{ color: 'black' }}>Home</Nav.Link>
 
@@ -51,7 +73,7 @@ function Header() {
             className='c-login-btn'
             onClick={() => setShowLoginPage(true)}>
 
-            <span className='text-white fw-bold'>Log in / Signup</span>
+            <span className='text-white fw-semibold'>Log in / Signup</span>
             <div className='rounded-circle profile-icon'>
               <FaUserAlt size={30} color='white' />
             </div>
@@ -86,13 +108,15 @@ function Header() {
       {showMovies &&
         <MoviesModal
           show={showMovies}
-          hide={() => setShowMovies(false)} />
+          hide={() => setShowMovies(false)}
+          movies={movies} />
       }
 
       {showCinema &&
         <CinemaModal
           show={showCinema}
-          hide={() => setShowCinema(false)} />
+          hide={() => setShowCinema(false)}
+          cinemas={cinemas} />
       }
 
       {showLoginPage &&
