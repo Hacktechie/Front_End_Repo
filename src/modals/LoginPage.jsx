@@ -5,11 +5,11 @@ import logo from '../assets/logo.avif'
 import { GrClose } from 'react-icons/Gr'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form';
-// import { useState } from 'react';
+import { useState } from 'react';
 
 function LoginPage({ show, hide }) {
 
-  // const [inputValue, setInputValue] = useState('')
+  const [isNewUser, setIsNewUser] = useState(false)
 
   return (
     <Modal
@@ -26,38 +26,90 @@ function LoginPage({ show, hide }) {
         </Button>
       </Modal.Header>
 
-      <Modal.Body className='px-5'>
-        <p className='h4 fw-semibold my-4'>Login with Email</p>
+      {!isNewUser ? (
+        <Modal.Body className='px-5'>
+          <p className='h4 fw-semibold my-4'>Login with Email</p>
 
-        <Form>
-          <Form.Group controlId="exampleForm.ControlInput1">
-            <Form.Control
-              type="text"
-              placeholder="Enter Email"
-              className='my-4 fw-bold'
-              id='input'
-              // onChange={(e) => setInputValue(e.target.value)}
-            />
-            <Form.Control
-              type="password"
-              placeholder="Password"
-              className='my-4 fw-bold'
-              id='input'
-            />
-          </Form.Group>
+          <Form>
+            <Form.Group>
+              <Form.Control
+                type="text"
+                placeholder="Enter Email"
+                className='my-4 fw-bold'
+                id='input'
+              />
+              <Form.Control
+                type="password"
+                placeholder="Password"
+                className='my-4 fw-bold'
+                id='input'
+              />
+            </Form.Group>
 
-          <Button
-            variant="info"
-            type="submit"
-            className='text-white'
-            id='get-otp-btn'>
-            Login
-          </Button>
+            <Button
+              variant="info"
+              type="submit"
+              className='text-white'
+              id='get-otp-btn'>
+              Login
+            </Button>
+          </Form>
 
-        </Form>
+          <div className='d-flex justify-content-center'>
+            <Button variant='link'
+              className='my-3'
+              id='c-btn-link'
+              onClick={() => setIsNewUser(true)}
+            >
+              New user? Create Account
+            </Button>
+          </div>
 
-      </Modal.Body>
+        </Modal.Body>
 
+      ) : (
+        
+        <Modal.Body className='px-5'>
+          <p className='h4 fw-semibold my-4'>Create Account</p>
+
+          <Form>
+            <Form.Group>
+              <Form.Control
+                type="text"
+                placeholder="Enter Email"
+                className='my-4 fw-bold'
+                id='input'
+              />
+              <Form.Control
+                type="password"
+                placeholder="Password"
+                className='my-4 fw-bold'
+                id='input'
+              />
+            </Form.Group>
+
+            <Button
+              variant="info"
+              type="submit"
+              className='text-white'
+              id='get-otp-btn'>
+              Sign Up
+            </Button>
+
+          </Form>
+
+          <div className='d-flex justify-content-center'>
+            <Button variant='link'
+              className='my-3'
+              id='c-btn-link'
+              onClick={() => setIsNewUser(false)}
+            >
+              Existing User? Login
+            </Button>
+          </div>
+
+        </Modal.Body>
+      )}
     </Modal>
   );
 }

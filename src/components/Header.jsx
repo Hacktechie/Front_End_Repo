@@ -11,6 +11,7 @@ import LoginPage from '../modals/LoginPage'
 
 function Header() {
 
+  const isLoggedIn = false
   const [showMovies, setShowMovies] = useState(false)
   const [showCinema, setShowCinema] = useState(false)
   const [showLoginPage, setShowLoginPage] = useState(false)
@@ -63,7 +64,11 @@ function Header() {
             Cinema
           </Nav.Link>
 
-          <Nav.Link className='c-navlink px-3 py-2' style={{ color: 'black' }}>Orders</Nav.Link>
+          <Nav.Link className='c-navlink px-3 py-2' 
+          style={{ color: 'black' }}
+          onClick={() => !isLoggedIn && setShowLoginPage(!showLoginPage)}
+          >
+            Orders</Nav.Link>
 
         </Nav>
 
@@ -71,7 +76,7 @@ function Header() {
 
           <button
             className='c-login-btn'
-            onClick={() => setShowLoginPage(true)}>
+            onClick={() => setShowLoginPage(true)} >
 
             <span className='text-white fw-semibold'>Log in / Signup</span>
             <div className='rounded-circle profile-icon'>

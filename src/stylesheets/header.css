@@ -48,11 +48,13 @@ header {
   padding-top: 10px;
 }
 
-.c-login-btn:hover {
+.c-login-btn:hover, 
+.c-login-btn:disabled {
   background-color: #002970;
 }
 
-.c-login-btn:hover .profile-icon {
+.c-login-btn:hover .profile-icon,
+.c-login-btn:disabled .profile-icon{
   background-color: #00baf2;
 }
 
@@ -149,4 +151,12 @@ header {
   font-weight: bold;
   width: 100%;
   border-radius: 8px;
+}
+
+#c-btn-link {
+  text-decoration: none;
+}
+
+#c-btn-link:hover {
+  text-decoration: underline;
 }
