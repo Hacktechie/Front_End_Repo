@@ -4,42 +4,22 @@ import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 import Button from 'react-bootstrap/Button'
 import { FaUserAlt, FaGooglePlay, FaApple } from 'react-icons/Fa'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import MoviesModal from '../modals/MoviesModal'
 import CinemaModal from '../modals/CinemaModal'
 import LoginPage from '../modals/LoginPage'
+import { movies } from '../../data/movies'
+import { cinemas } from '../../data/cinemas'
 
-function Header() {
+function HeaderNav() {
 
   const isLoggedIn = false
   const [showMovies, setShowMovies] = useState(false)
   const [showCinema, setShowCinema] = useState(false)
   const [showLoginPage, setShowLoginPage] = useState(false)
-  
-  const [cinemas, setCinemas] = useState([])
-  const [movies, setMovies] = useState([])
-  
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const responseMovies = await fetch('http://localhost:5050/api/movies')
-        const moviesData = await responseMovies.json()
-        setMovies(moviesData)
-        
-        const responseCinemas = await fetch('http://localhost:5050/api/cinemas')
-        const cinemasData = await responseCinemas.json()
-        setCinemas(cinemasData)
-      }
-      catch (err) {
-        console.error('Error fetching data from server', err);
-      }
-    }
-
-    fetchData()
-  }, [])
 
   return (
-    <header>
+    <div className='nav-wrapper'>
       <Navbar className='c-nav-bar'>
 
         <Navbar.Brand>
@@ -64,9 +44,9 @@ function Header() {
             Cinema
           </Nav.Link>
 
-          <Nav.Link className='c-navlink px-3 py-2' 
-          style={{ color: 'black' }}
-          onClick={() => !isLoggedIn && setShowLoginPage(!showLoginPage)}
+          <Nav.Link className='c-navlink px-3 py-2'
+            style={{ color: 'black' }}
+            onClick={() => !isLoggedIn && setShowLoginPage(!showLoginPage)}
           >
             Orders</Nav.Link>
 
@@ -130,8 +110,8 @@ function Header() {
           hide={() => setShowLoginPage(false)} />
       }
 
-    </header>
+    </div>
   )
 }
 
-export default Header
+export default HeaderNav
