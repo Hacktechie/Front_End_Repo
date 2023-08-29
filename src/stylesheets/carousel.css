@@ -1,0 +1,38 @@
+section {
+  padding: 20px 0;
+}
+
+.carousel-container {
+  position: absolute;
+  left: -50%;
+  width: 200vw;
+}
+
+.slick-slide {
+  padding: 0 10px;
+}
+
+.slick-prev,
+.slick-next {
+  height: fit-content;
+  width: fit-content;
+}
+
+.slick-slider .slick-prev {
+  left: 30%;
+  z-index: 1;
+}
+
+.slick-next {
+  right: 30%;
+}
+
+.slick-prev::before,
+.slick-next::before {
+  font-size: 40px;
+  color: white;
+}
+
+.carousel-img {
+  border-radius: 20px;
+}
