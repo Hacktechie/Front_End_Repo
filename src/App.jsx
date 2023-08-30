@@ -1,16 +1,16 @@
 import Header from "./components/Header"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
-import Home from "./components/Home"
-import MovieDetail from "./components/MovieDetail"
+import Home from "./pages/Home"
+import Profile from "./pages/Profile"
 
 function App() {
   return (
     <div>
-      <Header />
       <Router>
+        <Header />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/movie-detail" element={<MovieDetail />} />
+          <Route path="/profile" element={<Profile />} />
         </Routes>
       </Router>
     </div>

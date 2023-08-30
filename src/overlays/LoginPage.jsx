@@ -81,6 +81,12 @@ function LoginPage({ show, hide }) {
                 id='input'
               />
               <Form.Control
+                type="text"
+                placeholder="Enter User Name"
+                className='my-4 fw-bold'
+                id='input'
+              />
+              <Form.Control
                 type="password"
                 placeholder="Password"
                 className='my-4 fw-bold'
