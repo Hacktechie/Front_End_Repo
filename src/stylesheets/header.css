@@ -161,3 +161,32 @@
 #c-btn-link:hover {
   text-decoration: underline;
 }
+
+#popover {
+  width: 300px;
+  border-radius: 14px;
+  margin-top: 30px;
+}
+
+#popover .popover-arrow {
+  display: none;
+}
+
+.popover-body ul {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  padding: 5px 10px;
+  margin: 0;
+}
+
+.pop-btn {
+  font-size: 14px;
+  font-weight: 600;
+  text-align: left;
+  background-color: transparent;
+  width: 100%;
+  padding: 0;
+  border: none;
+  margin: 0;
+}
