@@ -13,13 +13,18 @@ import Popover from 'react-bootstrap/Popover'
 import { useNavigate } from 'react-router-dom'
 import { movies } from '../../data/movies'
 import { cinemas } from '../../data/cinemas'
+import Logout from '../overlays/Logout'
 
-function HeaderNav() {
+function Header() {
 
   const navigate = useNavigate()
 
+  const isLoggedIn = true
   // Login state and user details will be provided by database..
-  const [isLoggedIn, setIsLoggedIn] = useState(true)
+
+  const [showLogOut, setShowLogOut] = useState(false)
+  // Later this will come from redux store rather than a local state.
+  
   const userInfo = {
     userName: 'Saravana Kumar',
     email: 'saravana@gmail.com'
@@ -28,6 +33,7 @@ function HeaderNav() {
   const [showMovies, setShowMovies] = useState(false)
   const [showCinema, setShowCinema] = useState(false)
   const [showLoginPage, setShowLoginPage] = useState(false)
+  const [showPopover, setShowPopover] = useState(false)
 
   const popover = (
     <Popover id="popover">
@@ -36,7 +42,10 @@ function HeaderNav() {
           <li>
             <button
               className='pop-btn'
-              onClick={() => navigate('/profile')}
+              onClick={() => {
+                navigate('/profile')
+                setShowPopover(false)
+              }}
             >
               View Profile
             </button>
@@ -47,7 +56,10 @@ function HeaderNav() {
           <li>
             <button
               className="pop-btn"
-              onClick={() => setIsLoggedIn(false)}
+              onClick={() => {
+                setShowLogOut(true)
+                setShowPopover(false)
+              }}
             >
               Logout
             </button>
@@ -58,7 +70,7 @@ function HeaderNav() {
   )
 
   return (
-    <div className='nav-wrapper'>
+    <header>
       <Navbar className='c-nav-bar'>
 
         <Navbar.Brand>
@@ -116,6 +128,8 @@ function HeaderNav() {
             <OverlayTrigger
               trigger="click"
               placement="bottom"
+              show={showPopover}
+              onToggle={setShowPopover}
               rootClose
               overlay={popover}>
 
@@ -180,8 +194,13 @@ function HeaderNav() {
           hide={() => setShowLoginPage(false)} />
       }
 
-    </div>
+      {showLogOut &&
+        <Logout
+          show={showLogOut}
+          hide={() => setShowLogOut(false)} />}
+
+    </header>
   )
 }
 
-export default HeaderNav
+export default Header

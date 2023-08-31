@@ -1,4 +1,52 @@
-.profile-header {
+.header-container  {
+  height: 183px;
   background-image: url(https://assetscdn1.paytm.com/movies_new/_next/static/media/profile-page-bg.b21160eb.svg);
-  background-color: #f0fafe;
+}
+
+.userInfo-wrap {
+  padding: 30px 0;
+  background-color: white;
+  box-shadow: 0 5px 20px rgba(0,41,112,.1)
+}
+
+.profile-img {
+  height: 100px;
+  width: 100px;
+  margin-top: -83px;
+}
+
+.c-nav-list {
+  max-width: 770px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+.route-links {
+  color: #333;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.route-text {
+  font-size: 16px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.route-text span {
+  color: black;
+}
+
+.logout-modal .modal-dialog {
+  justify-content: center;
+}
+
+.logout-modal .modal-content {
+  max-width: 670px;
+  border-radius: 15px !important;
 }
