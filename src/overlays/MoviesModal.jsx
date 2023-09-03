@@ -9,7 +9,8 @@ function MoviesModal({ show, hide, movies }) {
       show={show}
       onHide={hide}
       size='xl'
-      className='c-modal'>
+      className='c-modal'
+      backdropClassName="custom-backdrop">
 
       <Modal.Body>
         <h3 className='fw-bold my-4'>Now Playing</h3>

@@ -8,7 +8,8 @@ function CinemaModal({ show, hide, cinemas }) {
       show={show}
       onHide={hide}
       size='xl'
-      className='c-modal' >
+      className='c-modal'
+      backdropClassName='custom-backdrop'>
 
       <Modal.Body>
         <h3 className='fw-bold my-4'>Cinemas in Chennai</h3>

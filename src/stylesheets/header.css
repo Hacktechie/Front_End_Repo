@@ -75,6 +75,10 @@ header {
 
 /* Movies Modal styels */
 
+.modal-open {
+  overflow: hidden; /* Prevents modal from playing with the scrollbar */
+}
+
 .c-modal .modal-content {
   border-radius: 20px;
   max-height: 520px;
@@ -83,7 +87,7 @@ header {
   margin-top: 100px;
 }
 
-.modal-backdrop.show {
+.custom-backdrop { /* Hides the dark background behind modals */
   opacity: 0;
   visibility: hidden;
   pointer-events: none;

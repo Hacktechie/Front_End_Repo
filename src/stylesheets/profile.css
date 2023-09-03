@@ -50,3 +50,17 @@
   max-width: 670px;
   border-radius: 15px !important;
 }
+
+.c-nav-list hr:last-child {
+  display: none;
+}
+
+/* Style for feedback radio btns */
+
+.feedback-radio .form-check-input {
+  margin-right: 10px;
+}
+
+.feedback-radio .form-check-input:checked + .form-check-label {
+  font-weight: 600;
+}

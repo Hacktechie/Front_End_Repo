@@ -16,3 +16,20 @@ body {
   overflow-x: hidden;
   padding-top: 90px;
 }
+
+summary {
+  list-style-type: none;
+}
+
+.summary-list hr:last-child {
+  display: none;
+}
+
+.contactUs-items a {
+  text-decoration: none;
+  margin-left: 10px;
+}
+
+.contactUs-items p {
+  margin: 0;
+}
