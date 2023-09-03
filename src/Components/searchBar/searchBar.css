@@ -1,0 +1,61 @@
+.searchBar_main .searchBar {
+    margin-inline: 4%;
+}
+
+.searchBar_main .searchBar .toggle_buttons {
+    padding: 2px;
+    display: flex;
+    gap: 15px;
+    background-color: #e7f1f8;
+    border-radius: 8px;
+    width: 80%;
+    align-items: center;
+    justify-content: center;
+}
+
+.searchBar_main .searchBar .toggle_buttons .toggles {
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 8px;
+}
+
+.searchBar_main .searchBar .search_input i {
+    margin-inline-end: 1%;
+}
+
+.searchBar_main .searchBar .search_input input {
+    width: 60%;
+    border: none !important;
+    outline: none !important;
+}
+
+.searchBar_main .searchBar .locations {
+    position: relative;
+}
+
+.searchBar_main .searchBar .locations .location_name {
+    border: 1px solid hsla(0,0%,6%,.13);
+    width: 70%;
+    padding-inline-start: 35px;
+    padding-block: 8px;
+    border-radius: 8px;
+}
+
+.searchBar_main .searchBar .locations .location_name::before {
+    content: "\f3c5";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    position: absolute;
+    top: 10px;
+    left: 12px;
+}
+
+.searchBar_main .searchBar .locations .location_name::after {
+    content: "\f107";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    position: absolute;
+    top: 10px;
+    right: 35%;
+}
+
