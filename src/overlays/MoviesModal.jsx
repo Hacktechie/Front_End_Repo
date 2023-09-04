@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import { Modal } from 'react-bootstrap';
-import { LuLanguages } from 'react-icons/Lu'
+import { LuLanguages } from 'react-icons/lu'
 
 function MoviesModal({ show, hide, movies }) {
 
