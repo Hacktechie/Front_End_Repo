@@ -8,6 +8,7 @@ header {
   position: fixed;
   top: 0;
   z-index: 1;
+  box-shadow: 0 5px 20px rgba(0,41,112,.1);
 }
 
 .nav-right {

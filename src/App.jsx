@@ -6,6 +6,7 @@ import TermsandConditions from "./pages/TermsandConditions"
 import Faq from "./pages/FAQ"
 import ContactUs from "./pages/ContactUs"
 import Feedback from "./pages/Feedback"
+import Orders from "./pages/Orders"
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/faq" element={<Faq />} />
           <Route path="/contactus" element={<ContactUs />} />
           <Route path="/feedback" element={<Feedback />} />
+          <Route path="/myorders" element={<Orders />} />
         </Routes>
       </Router>
     </div>

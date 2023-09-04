@@ -103,7 +103,7 @@ function Header() {
 
           <Nav.Link className='c-navlink px-3 py-2'
             style={{ color: 'black' }}
-            onClick={() => !isLoggedIn && setShowLoginPage(!showLoginPage)}
+            onClick={() => !isLoggedIn ? setShowLoginPage(!showLoginPage) : navigate('/myorders') }
           >
             Orders</Nav.Link>
 
