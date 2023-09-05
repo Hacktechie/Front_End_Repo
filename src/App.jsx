@@ -8,6 +8,12 @@ import ContactUs from "./pages/ContactUs"
 import Feedback from "./pages/Feedback"
 import Orders from "./pages/Orders"
 
+
+// kailash
+import SearchBarPage from './pages/SearchBarPage'
+
+
+// kailash
 function App() {
   return (
     <div>
@@ -21,6 +27,9 @@ function App() {
           <Route path="/contactus" element={<ContactUs />} />
           <Route path="/feedback" element={<Feedback />} />
           <Route path="/myorders" element={<Orders />} />
+
+          {/* kailash */}
+          <Route path="/search" element={<SearchBarPage />} />
         </Routes>
       </Router>
     </div>

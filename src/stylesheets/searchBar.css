@@ -1,0 +1,87 @@
+
+.row{
+    padding-top: 16px;
+}
+.searchBar_main{
+    background: #fff;
+    height: 72px;
+    box-shadow: 0 36px 13px -31px rgba(0,41,112,.07);
+}
+.searchBar_main .searchBar {
+    margin-inline: 4%;
+}
+
+.searchBar_main .searchBar .toggle_buttons {
+    padding: 2px;
+    display: flex;
+    gap: 15px;
+    background-color: #e7f1f8;
+    border-radius: 8px;
+    width: 80%;
+    align-items: center;
+    justify-content: center;
+}
+
+.searchBar_main .searchBar .toggle_buttons .toggles {
+    width: 50%;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 8px;
+    padding: 10px 8px;
+    text-align: center;
+    justify-content: center;
+    transition: background-color .4s cubic-bezier(0,1,.5,1);
+    font-size: 12px;
+    color: #101010;
+    font-weight: 400;
+    line-height: 16px;
+}
+
+.searchBar_main .searchBar .search_input i {
+    margin-inline-end: 1%;
+}
+
+.searchBar_main .searchBar .search_input input {
+    width: 60%;
+    border: none !important;
+    outline: none !important;
+    padding-left: 8px;
+    -webkit-font-smoothing: antialiased;
+    font-size: 16px;
+    color: hsla(0,0%,6%,.54);
+    font-weight: 400;
+    letter-spacing: -.08px;
+    caret-color: #00b8f5;
+    padding-top:4px;
+}
+
+.searchBar_main .searchBar .locations {
+    position: relative;
+}
+
+.searchBar_main .searchBar .locations .location_name {
+    border: 1px solid hsla(0,0%,6%,.13);
+    width: 70%;
+    padding-inline-start: 35px;
+    padding-block: 8px;
+    border-radius: 8px;
+}
+
+.searchBar_main .searchBar .locations .location_name::before {
+    content: "\f3c5";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    position: absolute;
+    top: 10px;
+    left: 12px;
+}
+
+.searchBar_main .searchBar .locations .location_name::after {
+    content: "\f107";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    position: absolute;
+    top: 10px;
+    right: 35%;
+}
+
