@@ -14,7 +14,7 @@ function CarouselComp() {
   }
   
   return (
-    <section>
+    <section className='carousel-section'>
       <div className="carousel-container">
         <Slider {...settings}>
           {carouselData.map((item) => (
