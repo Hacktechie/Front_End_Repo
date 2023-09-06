@@ -77,7 +77,8 @@ header {
 /* Movies Modal styels */
 
 .modal-open {
-  overflow: hidden; /* Prevents modal from playing with the scrollbar */
+  overflow-y: auto !important; /* Prevents modal from playing with the scrollbar */
+  padding-right: 0 !important;
 }
 
 .c-modal .modal-content {
@@ -95,9 +96,10 @@ header {
 }
 
 .modal-grid {
-  display: flex;
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 46% 46%;
+  justify-content: start;
+  column-gap: 4%;
   max-height: 400px;
   overflow-y: scroll;
 }
@@ -107,8 +109,6 @@ header {
   display: flex;
   align-items: center;
   gap: 10px;
-  width: 46%;
-  margin-right: auto;
 }
 
 .movies p {
@@ -131,7 +131,7 @@ header {
 .cinemas {
   display: flex;
   align-items: center;
-  width: 46%;
+  width: 100%;
   margin-right: auto;
 }
 
@@ -197,4 +197,11 @@ header {
   padding: 0;
   border: none;
   margin: 0;
+}
+
+@media (max-width: 991px) {
+  .modal-grid {
+    display: block;
+    padding-right: 2%;
+  }
 }

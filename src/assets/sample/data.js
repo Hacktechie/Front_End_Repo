@@ -3,7 +3,7 @@ export const dataDigitalBestSeller = [
       id: 1,
       title: 'Kang Daniel:My Parade ',
       price: 'Korean',
-      category: 'Music,Documentary',
+      category: 'Music, Documentary',
       linkImg:
         'https://assetscdn1.paytm.com/images/cinema/KANGDANIEL--MY-PARADE--poster-Recovered-e406b170-360e-11ee-a3fe-6d0a80a1228c.jpg?format=webp&imwidth=100%',
     },
@@ -11,7 +11,7 @@ export const dataDigitalBestSeller = [
       id: 2,
       title: 'Angaaragan',
       price: 'Tamil',
-      category: 'Thriller,Horror',
+      category: 'Thriller, Horror',
       linkImg:
         'https://assetscdn1.paytm.com/images/cinema/Angaaragan--poster-78a32d50-3bea-11ee-965d-f906ef96814c.jpg?format=webp&imwidth=100%',
     },
@@ -26,16 +26,16 @@ export const dataDigitalBestSeller = [
     {
       id: 4,
       title: 'Finder',
-      price: 'Tamil,Hindi,Malayalam',
-      category: 'Suspense,Thriller',
+      price: 'Tamil, Hindi, Malayalam',
+      category: 'Suspense, Thriller',
       linkImg:
         'https://assetscdn1.paytm.com/images/cinema/finder-poster-57c1b040-3765-11ee-8b1c-c54a903cd027.jpg?format=webp&imwidth=100%',
     },
     {
       id: 5,
       title: 'Kick',
-      price: 'Tamil,Telugu',
-      category: 'Action,Comedy,Romance',
+      price: 'Tamil, Telugu',
+      category: 'Action, Comedy, Romance',
       linkImg:
         'https://assetscdn1.paytm.com/images/cinema/Kick--poster-323e2400-3762-11ee-ac33-6710aa9bf74c.jpg?format=webp&imwidth=100%',
     },
@@ -50,7 +50,7 @@ export const dataDigitalBestSeller = [
     {
       id: 7,
       title: 'Jawan',
-      price: 'Tamil,Telugu,Hindi',
+      price: 'Tamil, Telugu, Hindi',
       category: 'Nintendo Switch',
       linkImg:
         'https://assetscdn1.paytm.com/images/cinema/Jawan-80446e90-376f-11ee-ac33-6710aa9bf74c.jpg?format=webp&imwidth=100%',

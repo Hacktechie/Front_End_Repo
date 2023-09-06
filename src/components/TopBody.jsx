@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 // import Container from 'react-bootstrap/Container';
 // import Row from 'react-bootstrap/Row';
 // import Col from 'react-bootstrap/Col';
@@ -86,7 +86,7 @@ const TopBody = () => {
       </ul>
     </div> */}
 
-            <div className='samp-container'>
+            <div className='d-flex justify-content-center samp-container'>
                 <div className='runningmovies-container'>
                     <Card className='movies_filter_card'
                         style={filter_card}>

@@ -1,8 +1,3 @@
-.MainCard .slick-slide>div {
-  margin: 0 10px;
-
-}
-
 .MainCard .slick-list {
   margin: 0 -10px;
 }
@@ -24,8 +19,6 @@
 
 
 .MainCard_top_header a:first-child {
-
-
   font-size: 16px;
   color: #101010;
   font-weight: 600;
@@ -33,9 +26,6 @@
   letter-spacing: -.41px;
   text-decoration: none;
   cursor: pointer;
-
-
-
 }
 
 .MainCard_top_header a {
@@ -49,14 +39,6 @@
 }
 
 .upcomeig_card {
-  /* border: 1px solid #fff;
-  background: black;
-  border-radius: 8px;
-  overflow: hidden;
-  
-  height: 400px;
-  color: #fff;
-  cursor: pointer; */
   width: 307px;
   display: block;
   font-size: 14px;
@@ -82,8 +64,6 @@
 .card-top>img {
   width: 291px;
   height: 383px;
-
-  /* background: black; */
 }
 
 .MainCard .slick-prev:before,

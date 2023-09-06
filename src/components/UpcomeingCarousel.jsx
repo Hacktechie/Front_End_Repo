@@ -1,11 +1,7 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-
 import '../stylesheets/upcomeingcarousel.css';
 import { dataDigitalBestSeller } from '../assets/sample/data';
-// import imgGirl from './assets/images/defaultImage.jpg';
 
 function UpcomeingCarousel() {
   const [defaultImage, setDefaultImage] = useState({});
@@ -48,47 +44,45 @@ function UpcomeingCarousel() {
     setDefaultImage((prev) => ({
       ...prev,
       [data.target.alt]: data.target.alt,
-      linkDefault: imgGirl,
     }));
   };
 
   return (
 
-    <div className="App">
 
-      <div className='MainCard'>
-        <div className="MainCard_top_header">
-          <a href="#">Upcoming Movies </a>
-          <a href="#">View All</a>
+    <div className='MainCard'>
+      <div className="MainCard_top_header">
+        <a href="#">Upcoming Movies </a>
+        <a href="#">View All</a>
 
-        </div>
-        <Slider {...settings}>
-          {dataDigitalBestSeller.map((item) => (
-            <div className="upcomeig_card">
-              <div className="card-top">
-                <img 
-                  src={
-                    defaultImage[item.title] === item.title
-                      ? defaultImage.linkDefault
-                      : item.linkImg
-                  }
-                  alt={item.title}
-                  onError={handleErrorImage}
-                />
+      </div>
+      <Slider {...settings}>
+        {dataDigitalBestSeller.map((item, index) => (
+          <div key={index} className="upcomeig_card">
+            <div className="card-top">
+              <img
+                src={
+                  defaultImage[item.title] === item.title
+                    ? defaultImage.linkDefault
+                    : item.linkImg
+                }
+                alt={item.title}
+                onError={handleErrorImage}
+                style={{ height: '100%', width: '100%' }}
+              />
 
-                <div className="bot">
-                  <h1>{item.title}</h1>
+              <div className="bot">
+                <h1>{item.title}</h1>
 
-                  <div className="card-bottom">
-                    <span>{item.price}</span>
-                    <span className="category">{item.category}</span>
-                  </div>
+                <div className="card-bottom">
+                  <span>{item.price}</span>
+                  <span className="category">{item.category}</span>
                 </div>
               </div>
             </div>
-          ))}
-        </Slider>
-      </div>
+          </div>
+        ))}
+      </Slider>
     </div>
 
   );

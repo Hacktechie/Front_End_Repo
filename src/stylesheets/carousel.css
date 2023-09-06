@@ -1,10 +1,9 @@
 .carousel-section {
   padding: 20px 0;
-  margin-bottom: 195px;
 }
 
 .carousel-container {
-  position: absolute;
+  position: relative;
   left: -50%;
   width: 200vw;
 }
@@ -36,4 +35,20 @@
 
 .carousel-img {
   border-radius: 20px;
+}
+
+@media (max-width: 991px) {
+  .carousel-container {
+    width: 100vw;
+    left: 0;
+  }
+
+  .slick-slider .slick-prev {
+    left: 20px;
+  }
+
+  .slick-slider .slick-next {
+    right: 20px;
+  }
+  
 }

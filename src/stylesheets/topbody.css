@@ -1,17 +1,11 @@
-
 .samp-container {
-  background-color: #f6f6f6;
   width: 100%;
   margin: 0 auto;
-  box-sizing: border-box;
-
-
 }
 
 .runningmovies-container {
   display: flex;
   margin: 0px 7px 0 7px;
-  background-color: #f6f6f6;
   padding: 20px 0px 24px 0px;
 
 }
@@ -85,7 +79,6 @@
 }
 
 .runningmovies_list-container {
-  width: 953px;
   height: 1032.67px;
   background-color: blue;
   min-height: 440px;
@@ -235,6 +228,14 @@
   font-weight: 600;
 }
 
-.form-check-input:checked + .form-check-label {
- 
-  font-weight: bold;}
+.form-check-input:checked+.form-check-label {
+
+  font-weight: bold;
+}
+
+@media (max-width: 1299px) {
+  .movie_cards_loopp {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
