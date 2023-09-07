@@ -22,7 +22,6 @@
   background: #fff;
   border-radius: 24px;
   overflow: hidden;
-
 }
 
 .movies_filter-container {
@@ -35,7 +34,6 @@
 
   .card-body {
     padding: 1rem 1rem 0rem 1rem;
-
   }
 
 }
@@ -109,7 +107,6 @@
   font-weight: 700;
   letter-spacing: -.41px;
   line-height: 24px;
-
 }
 
 .runningmovies_card_body {
@@ -119,11 +116,9 @@
 .movie_cards_movierateinglang span {
   font-size: 14px;
   color: hsla(0, 0%, 6%, .54);
-
 }
 
 .dott {
-
   width: 4px;
   height: 4px;
   margin-top: 8px;
@@ -137,9 +132,6 @@
   display: flex;
   justify-content: space-between;
   padding: 26px 20px 0;
-
-
-
 }
 
 .movies_filter_card card {
@@ -165,8 +157,6 @@
   justify-content: space-between;
   padding: 15px 20px 0;
 }
-
-
 
 .filter_radio .form-check {
   display: flex;
