@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import '../stylesheets/searchBarPage.css'
 import { useNavigate } from 'react-router-dom'
+import { GrSearch,GrPrevious } from "react-icons/gr";
+
 
 const SearchBarPage = () => {
   const navigate = useNavigate()
@@ -36,10 +38,11 @@ const SearchBarPage = () => {
     <div className='searchbar-pagemain'>
       <div className='searchbar-page'>
         <div className='search'>
-          <i className="fa-solid fa-magnifying-glass" /> <input type='text' placeholder='Search Movies or Cinemas' />
+          <h5><GrSearch /></h5>
+          <input  type='text' placeholder='Search Movies or Cinemas' />
         </div>
         <div className='backButton' onClick={() => navigate("/")}>
-          <i className="fa-solid fa-angle-left" />
+          <span><GrPrevious/></span>
           <div>Back</div>
         </div>
       </div>
@@ -52,19 +55,19 @@ const SearchBarPage = () => {
           <hr className='m-0' />
           <div className='cardBody'>
             {type == "movies" ?
-              movies?.map((d) => 
-              < div className='Movies'>
-                <div className='movieImg'>
-                  <img src={d.img} />
-                </div>
-                <div className='movieTitle'>
-                  <div className='title'>{d.name}</div>
-                  <div className='sub-title'>
-                    <img src='	https://assetscdn1.paytm.com/movies_new/_next/static/media/language-black.ee3fdab3.svg' />
-                    <span>{d.language}</span>
+              movies?.map((d) =>
+                < div className='Movies'>
+                  <div className='movieImg'>
+                    <img src={d.img} />
                   </div>
-                </div>
-              </div>)
+                  <div className='movieTitle'>
+                    <div className='title'>{d.name}</div>
+                    <div className='sub-title'>
+                      <img src='	https://assetscdn1.paytm.com/movies_new/_next/static/media/language-black.ee3fdab3.svg' />
+                      <span>{d.language}</span>
+                    </div>
+                  </div>
+                </div>)
               :
               <div className='Cinemas'>
                 <div className='row'>

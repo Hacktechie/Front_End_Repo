@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import '../stylesheets/searchBar.css'
 import { useNavigate } from 'react-router-dom'
+import { GrSearch,GrLocation } from "react-icons/gr";
 
 const SearchBar = () => {
     const navigate = useNavigate()
@@ -23,8 +24,10 @@ const SearchBar = () => {
                             <div className='toggles' style={{ backgroundColor: toggle ? "transparent" : "#fff" }} onClick={handleClick}>Coming soon</div>
                         </div>
                     </div>
-                    <div className='col-lg-7'><div className='search_input' ><i className="fa-solid fa-magnifying-glass" /><input type='text' placeholder='Search Movie' onClick={navigateSearch} /></div></div>
-                    <div className='col-lg-2'><div className='locations'><div className='location_name'>Chennai</div></div></div>
+                    <div className='col-lg-7'><div className='search_input' >
+                        <span className='magni_search'><GrSearch /></span>
+                        <input type='text' placeholder='Search Movie' onClick={navigateSearch} /></div></div>
+                    <div className='col-lg-2'><GrLocation/><div className='location_name'>Chennai</div></div>
                 </div>
             </div>
         </div>

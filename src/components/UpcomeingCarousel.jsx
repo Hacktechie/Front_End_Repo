@@ -54,7 +54,7 @@ function UpcomeingCarousel() {
 
   return (
 
-    <div className="App">
+   
 
       <div className='MainCard'>
         <div className="MainCard_top_header">
@@ -89,7 +89,7 @@ function UpcomeingCarousel() {
           ))}
         </Slider>
       </div>
-    </div>
+    
 
   );
 }

@@ -1,5 +1,12 @@
+
+.search{
+    font-size: 16px;
+    caret-color: #00b8f5;
+}
+
 .searchbar-pagemain .searchbar-page {
-    padding: 1.5% 4%;
+    background-color:white;
+    padding: 1.5% 1%;
     display: flex;
     justify-content: space-between;
     box-shadow: 0 5px 20px rgba(0, 41, 112, .1);
@@ -13,7 +20,7 @@
 }
 
 .searchbar-pagemain .searchbar-page .search input {
-    width: 50%;
+    width: 100%;
     border: none;
     outline: none;
 }
@@ -24,7 +31,7 @@
 
 .searchbar-pagemain .searchbar-page .backButton {
     display: flex;
-    gap: 15px;
+    gap: 3px;
     align-items: center;
     color: #00aced;
     cursor: pointer;
