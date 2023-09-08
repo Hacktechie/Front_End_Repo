@@ -1,192 +1,23 @@
-.footer_container {
-    padding: 120px 0 54px;
-    margin: 0px 7px 0 7px;
-
-
+footer {
+    background-color: #f5f7fa;
 }
 
-.footer_topsection-one {
-    display: flex;
+.footer_row1 {
     align-items: center;
+    border-bottom: 1px solid silver;
+}
+
+.footer_row2 {
     justify-content: space-between;
-    padding-bottom: 32px;
-    border-bottom: 1px solid #ccc;
 }
 
-.footer_topsection_one_left {
-    display: flex;
-    align-items: center;
-    column-gap: 8px;
-}
-
-.footer_topsection_one_left h1 {
-    font-size: 20px;
-    color: #101010;
-    font-weight: 600;
-    line-height: 26px;
-    width: 231px;
-}
-
-.stores {
-    display: flex;
-    column-gap: 16px;
-}
-
-.right_store {
-    margin-right: 16px;
-    font-size: 12px;
-    color: #101010;
+.footer_row2 ul {
+    list-style-type: none;
+    line-height: 2;
     font-weight: 500;
-    line-height: 16px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    width: 92px;
+}
+
+.footer_row2 a {
     text-decoration: none;
-}
-
-.footer_topsection_one_right_icons {
-    width: 48px;
-    height: 48px;
-    background-color: #f5f9fe;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid #d7dbdf;
-    margin-bottom: 4px
-}
-
-.footer_topsection_one_right_icons img {
-    width: 34px;
-    height: 34px;
-    background-size: 34px;
-}
-
-
-.footer_topsection-two {
-    display: flex;
-    justify-content: space-between;
-    margin: 42px auto 28px;
-    width: calc(100% - 48px);
-}
-
-.browse_all_sub_heading,
-.cinemas_heading {
-    font-size: 18px;
-    color: #101010;
-    font-weight: 600;
-    line-height: 24px;
-    letter-spacing: -.41px;
-}
-
-.browse_all_sub_list,
-.cinemas_list {
-    list-style: none;
-    font-size: 16px;
-    color: #101010;
-    font-weight: 500;
-    line-height: 24px;
-    letter-spacing: -.32px;
-    text-align: start;
-    padding-left: 20PX;
-}
-
-.browse_all_sub_list li,
-.cinemas_list li {
-    text-decoration: none;
-    margin-top: 16px;
-    cursor: pointer;
-}
-
-.browse_all_sub_list li>a,
-.cinemas_list li>a {
-    text-decoration: none;
-    color: hsla(0, 0%, 6%, .54);
-}
-
-.cinemas_list {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    max-height: 292px;
-    column-gap: 48px;
-    min-width: 621px;
-}
-
-.cinemas_list li {
-    max-width: 264px;
-
-}
-
-.footer_bottomsection {
-    flex-direction: column;
-    padding-top: 30px;
-}
-
-.footer_bottomsection h1 {
-    text-align: start;
-    font-size: 20px;
-    color: #1d252d;
-    font-weight: 600;
-}
-
-.footer_bottomsection li {
-    list-style: none;
-    font-size: 14px;
-
-}
-
-.footer_bottomsection a {
-
-    margin-left: 3px;
-    font-weight: 500;
-    color: #00aced;
-    text-decoration: none;
-}
-
-.footer_online_movie_booking h1 , .footer_online_movie_booking h1>span , .footer_bottomsection h1>span{
-    font-size: 20px;
-    color: #1d252d;
-    font-weight: 600;
-}
-/* .footer_online_movie_booking h1>span{
-
-    font-size: 20px;
-    color: #1d252d;
-    font-weight: 600;
-}    */
-
-.footer_online_movie_booking p {
-    line-height: 16px;
-    font-size: 13px;
-    color: #506d85;
-    font-weight: 400;
-    margin: revert!important;
-}
-.footer_online_movie_booking a{
-    text-decoration: none;
-}
-
-.footer_online_movie_booking{
-    text-align: start;
-}
-
-.socio {
-    margin-top: 44px;
-    display: flex;
-    column-gap: 24px;
-    justify-content: center;
-}
-
-.copyrights{
-    margin-top: 16px;
-    font-size: 12px;
-    color: hsla(0,0%,6%,.54);
-    font-weight: 600;
-    line-height: 16px;
-    text-align: center;
-
+    color: gray;
 }

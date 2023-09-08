@@ -14,14 +14,14 @@ const Botmfiltr = () => {
   }, []);
 
   return (
-    <div className="main_btm_filter_container">
+    <div className="container-flow container-lg main_btm_filter_container">
       <div className="main_btm_filter_sub-container">
         <div className="main_btm_filter">
           <div className="main_btm_filter_head">
             <h1>Explore Latest Movies in Chennai by Language</h1>
           </div>
-          <div className="main_btm_filter_header_lang">
 
+          <div className="main_btm_filter_header_lang">
             {categori.map(category => (
               <div className="btm_filter_header_lang" key={category.idCategory}>
                 <a href="#">{category.strCategory}</a>

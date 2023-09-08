@@ -49,7 +49,7 @@ function UpcomeingCarousel() {
 
   return (
 
-    <div className='MainCard container p-4'>
+    <div className='MainCard container-flow container-lg p-4 pb-5'>
       <div className="MainCard_top_header">
         <a href="#">Upcoming Movies </a>
         <a href="#">View All</a>

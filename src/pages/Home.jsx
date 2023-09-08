@@ -3,9 +3,6 @@ import SearchBar from '../components/SearchBar'
 import TopBody from '../components/TopBody'
 import UpcomeingCarousel from '../components/UpcomeingCarousel'  
 import Botmfiltr from '../components/Botmfiltr' 
-import Footer from '../components/Footerr'
-
-
 
 function Home() {
   return (
@@ -15,7 +12,6 @@ function Home() {
       <TopBody/>
       <UpcomeingCarousel/>
       <Botmfiltr/>
-      <Footer/>
     </div>
   )
 }

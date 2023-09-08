@@ -1,18 +1,15 @@
 
 .main_btm_filter_container{
-    padding-top: 20px;
-}
-.main_btm_filter_sub-container {
     background: #fff;
-    padding: 26px 24px 24px;
+    padding: 26px !important;
     border-radius: 24px;
-    margin: 0px 7px 0 7px;
-    overflow: hidden;
-
+    margin-top: 20px;
 }
+
 .main_btm_filter2{
     margin-top: 34px;
 }
+
 .main_btm_filter_head{
     display: flex;
     align-items: center;
@@ -21,9 +18,8 @@
 .main_btm_filter_heading {
     display: flex;
     margin-bottom: 18px;
-
-    
 }
+
 .main_btm_filter_head h1 {
     margin-bottom: 0;
     font-size: 18px;
@@ -33,11 +29,11 @@
     line-height: 24px;
 }
 
-
-
 .main_btm_filter_header_lang {
+    padding-bottom: 10px;
     display: flex;
-
+    overflow-x: scroll;
+    scrollbar-width: thin;
 }
 
 .btm_filter_header_lang {

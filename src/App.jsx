@@ -7,7 +7,7 @@ import Faq from "./pages/Faq"
 import ContactUs from "./pages/ContactUs"
 import Feedback from "./pages/Feedback"
 import Orders from "./pages/Orders"
-
+import Footer from "./components/Footer"
 
 // kailash
 import SearchBarPage from './pages/SearchBarPage'
@@ -31,6 +31,7 @@ function App() {
           {/* kailash */}
           <Route path="/search" element={<SearchBarPage />} />
         </Routes>
+        <Footer />
       </Router>
     </div>
   )
