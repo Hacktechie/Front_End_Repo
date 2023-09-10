@@ -1,10 +1,18 @@
 import PropTypes from 'prop-types'
 import { Modal } from "react-bootstrap"
+import { useDispatch } from 'react-redux'
+import { logout } from '../redux/slices/authSlice';
 
 function Logout({ show, hide }) {
 
-  return (
+  const dispatch = useDispatch()
 
+  function handleLogout() {
+    dispatch(logout())
+    hide()
+  }
+
+  return (
     <Modal
       className='modal-lg logout-modal'
       show={show}
@@ -24,7 +32,7 @@ function Logout({ show, hide }) {
 
           <button
             className='btn fw-semibold px-3 btn-info text-white rounded-pill'
-          > {/* Logout logic will go here */}
+            onClick={handleLogout}> 
             Logout
           </button>
         </div>

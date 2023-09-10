@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup';
 import ToggleButton from 'react-bootstrap/ToggleButton';
-import '../stylesheets/searchBar.css'
 import { LuSearch } from 'react-icons/lu'
 import { GrLocation } from 'react-icons/gr'
 import { IoIosArrowDown } from 'react-icons/io'
 import { useNavigate } from 'react-router-dom';
+import '../stylesheets/searchBar.css'
 
 function SearchBar() {
 

@@ -6,10 +6,21 @@ import { GrClose } from 'react-icons/gr'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form';
 import { useState } from 'react';
+import { useDispatch } from 'react-redux'
+import { login } from '../redux/slices/authSlice';
 
 function LoginPage({ show, hide }) {
 
+  const dispatch = useDispatch()
+
   const [isNewUser, setIsNewUser] = useState(false)
+
+  // This will later submit to backend and validated.
+  function handleLogin(e) {
+    e.preventDefault()
+    dispatch(login())
+    hide()
+  }
 
   return (
     <Modal
@@ -50,7 +61,9 @@ function LoginPage({ show, hide }) {
               variant="info"
               type="submit"
               className='text-white'
-              id='get-otp-btn'>
+              id='get-otp-btn'
+              onClick={handleLogin}
+            >
               Login
             </Button>
           </Form>
@@ -68,7 +81,7 @@ function LoginPage({ show, hide }) {
         </Modal.Body>
 
       ) : (
-        
+
         <Modal.Body className='px-5'>
           <p className='h4 fw-semibold my-4'>Create Account</p>
 

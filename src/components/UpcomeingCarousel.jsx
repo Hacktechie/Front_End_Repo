@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Slider from 'react-slick';
+import { upcomingMovies } from '../../data/upcomingMovies'
 import '../stylesheets/upcomeingcarousel.css';
-import { dataDigitalBestSeller } from '../assets/sample/data';
 
 function UpcomeingCarousel() {
   const [defaultImage, setDefaultImage] = useState({});
@@ -56,7 +56,7 @@ function UpcomeingCarousel() {
 
       </div>
       <Slider {...settings}>
-        {dataDigitalBestSeller.map((item, index) => (
+        {upcomingMovies.map((item, index) => (
           <div key={index} className="upcomeig_card">
             <div className="card-top">
               <img

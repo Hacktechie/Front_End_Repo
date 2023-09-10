@@ -1,7 +1,10 @@
 import PropTypes from 'prop-types'
 import { Modal } from 'react-bootstrap';
+import {useSelector} from 'react-redux'
 
-function CinemaModal({ show, hide, cinemas }) {
+function CinemaModal({ show, hide }) {
+
+  const cinemas = useSelector(state => state.cinemas.cinemas)
 
   return (
     <Modal
@@ -32,8 +35,7 @@ function CinemaModal({ show, hide, cinemas }) {
 
 CinemaModal.propTypes = {
   show: PropTypes.bool,
-  hide: PropTypes.func,
-  cinemas: PropTypes.array
+  hide: PropTypes.func
 }
 
 export default CinemaModal;

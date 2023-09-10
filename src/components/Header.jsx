@@ -11,25 +11,17 @@ import LoginPage from '../overlays/LoginPage'
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
 import Popover from 'react-bootstrap/Popover'
 import { useNavigate } from 'react-router-dom'
-import { movies } from '../../data/movies'
-import { cinemas } from '../../data/cinemas'
 import Logout from '../overlays/Logout'
+import { useSelector } from 'react-redux'
 
 function Header() {
 
   const navigate = useNavigate()
-
-  const isLoggedIn = true
-  // Login state and user details will be provided by database..
+  
+  const isLoggedIn = useSelector(state => state.auth.isLoggedIn)
+  const userInfo = useSelector(state => state.auth.user)
 
   const [showLogOut, setShowLogOut] = useState(false)
-  // Later this will come from redux store rather than a local state.
-  
-  const userInfo = {
-    userName: 'Saravana Kumar',
-    email: 'saravana@gmail.com'
-  }
-
   const [showMovies, setShowMovies] = useState(false)
   const [showCinema, setShowCinema] = useState(false)
   const [showLoginPage, setShowLoginPage] = useState(false)
@@ -103,7 +95,7 @@ function Header() {
 
           <Nav.Link className='c-navlink px-3 py-2'
             style={{ color: 'black' }}
-            onClick={() => !isLoggedIn ? setShowLoginPage(!showLoginPage) : navigate('/myorders') }
+            onClick={() => !isLoggedIn ? setShowLoginPage(!showLoginPage) : navigate('/myorders')}
           >
             Orders</Nav.Link>
 
@@ -177,15 +169,13 @@ function Header() {
       {showMovies &&
         <MoviesModal
           show={showMovies}
-          hide={() => setShowMovies(false)}
-          movies={movies} />
+          hide={() => setShowMovies(false)} />
       }
 
       {showCinema &&
         <CinemaModal
           show={showCinema}
-          hide={() => setShowCinema(false)}
-          cinemas={cinemas} />
+          hide={() => setShowCinema(false)} />
       }
 
       {showLoginPage &&

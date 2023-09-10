@@ -1,8 +1,11 @@
 import PropTypes from 'prop-types'
 import { Modal } from 'react-bootstrap';
+import { useSelector } from 'react-redux'
 import MovieCompSmall from '../components/MovieCompSmall';
 
-function MoviesModal({ show, hide, movies }) {
+function MoviesModal({ show, hide }) {
+
+  const movies = useSelector(state => state.movies.movies)
 
   return (
     <Modal
@@ -31,8 +34,7 @@ function MoviesModal({ show, hide, movies }) {
 
 MoviesModal.propTypes = {
   show: PropTypes.bool,
-  hide: PropTypes.func,
-  movies: PropTypes.array
+  hide: PropTypes.func
 }
 
 export default MoviesModal;

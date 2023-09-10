@@ -1,13 +1,14 @@
 import { LuSearch } from 'react-icons/lu'
 import { RiArrowLeftSLine } from 'react-icons/ri'
 import { Link } from 'react-router-dom'
-import { movies } from '../../data/movies'
-import { cinemas } from '../../data/cinemas'
-import MovieCompSmall from '../components/MovieCompSmall'
 import { useState } from 'react'
+import { useSelector } from 'react-redux'
+import MovieCompSmall from '../components/MovieCompSmall'
 
 function SearchBarPage() {
 
+  const movies = useSelector(state => state.movies.movies)
+  const cinemas = useSelector(state => state.cinemas.cinemas)
   const [showMovies, setShowMovies] = useState(true)
 
   return (

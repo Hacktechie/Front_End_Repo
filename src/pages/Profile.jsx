@@ -9,11 +9,12 @@ import { IoIosArrowForward } from 'react-icons/io'
 import LoginPage from '../overlays/LoginPage'
 import Logout from '../overlays/Logout'
 import '../stylesheets/profile.css'
+import { useSelector } from 'react-redux'
 
 function Profile() {
 
-  const isLoggedIn = true
-  // Login state and user details will be provided by database..
+  const isLoggedIn = useSelector(state => state.auth.isLoggedIn)
+  const userInfo = useSelector(state => state.auth.user)
 
   const [showLoginPage, setShowLoginPage] = useState(false) 
   const [showLogOut, setShowLogOut] = useState(false)
@@ -28,8 +29,8 @@ function Profile() {
 
         {isLoggedIn ?
           <>
-            <p className='h4 fw-semibold text-center pt-3'>Saravana Kumar</p>
-            <p className='text-center'>saravana@gmail.com</p>
+            <p className='h4 fw-semibold text-center pt-3'>{userInfo.userName}</p>
+            <p className='text-center'>{userInfo.email}</p>
           </>
 
           :

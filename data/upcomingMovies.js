@@ -1,4 +1,4 @@
-export const dataDigitalBestSeller = [
+export const upcomingMovies = [
     {
       id: 1,
       title: 'Kang Daniel:My Parade ',

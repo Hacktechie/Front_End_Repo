@@ -4,10 +4,12 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import Form from 'react-bootstrap/Form';
 import '../stylesheets/topbody.css'
 import { IoIosArrowDown } from 'react-icons/io'
-import { movies } from '../../data/movies'
+import { useSelector } from 'react-redux'
 
 const TopBody = () => {
 
+  const movies = useSelector(state => state.movies.movies)
+  
   const [isRadioVisible, setIsRadioVisible] = useState(true);
   const [rotationAngle, setRotationAngle] = useState(180);
 

@@ -8,16 +8,14 @@ import ContactUs from "./pages/ContactUs"
 import Feedback from "./pages/Feedback"
 import Orders from "./pages/Orders"
 import Footer from "./components/Footer"
-
-// kailash
 import SearchBarPage from './pages/SearchBarPage'
+import ScrollToTop from './components/ScrollToTop'
 
-
-// kailash
 function App() {
   return (
     <div>
       <Router>
+        <ScrollToTop /> {/* Scrolls to top whenever route changes */}
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
