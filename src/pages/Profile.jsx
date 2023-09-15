@@ -6,7 +6,7 @@ import { PiChats } from 'react-icons/pi'
 import { BsTelephone, BsChatLeftText } from 'react-icons/bs'
 import { FiLogOut } from 'react-icons/fi'
 import { IoIosArrowForward } from 'react-icons/io'
-import LoginPage from '../overlays/LoginPage'
+import LoginModal from '../overlays/LoginModal'
 import Logout from '../overlays/Logout'
 import '../stylesheets/profile.css'
 import { useSelector } from 'react-redux'
@@ -16,7 +16,7 @@ function Profile() {
   const isLoggedIn = useSelector(state => state.auth.isLoggedIn)
   const userInfo = useSelector(state => state.auth.user)
 
-  const [showLoginPage, setShowLoginPage] = useState(false) 
+  const [showLoginModal, setShowLoginModal] = useState(false) 
   const [showLogOut, setShowLogOut] = useState(false)
 
   return (
@@ -39,7 +39,7 @@ function Profile() {
             <button
               className='btn text-info fw-semibold p-0 m-0 mt-3'
               style={{ fontSize: '20px' }}
-              onClick={() => setShowLoginPage(!showLoginPage)}
+              onClick={() => setShowLoginModal(!showLoginModal)}
             >
               Sign in
             </button>
@@ -122,10 +122,10 @@ function Profile() {
         </ul>
       </div>
 
-      {showLoginPage && 
-      <LoginPage
-        show={showLoginPage}
-        hide={() => setShowLoginPage(false)} />}
+      {showLoginModal && 
+      <LoginModal
+        show={showLoginModal}
+        hide={() => setShowLoginModal(false)} />}
 
       {showLogOut &&
         <Logout

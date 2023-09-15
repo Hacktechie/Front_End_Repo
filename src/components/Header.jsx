@@ -7,7 +7,7 @@ import { FaUserAlt, FaGooglePlay, FaApple } from 'react-icons/fa'
 import { useState } from 'react'
 import MoviesModal from '../overlays/MoviesModal'
 import CinemaModal from '../overlays/CinemaModal'
-import LoginPage from '../overlays/LoginPage'
+import LoginModal from '../overlays/LoginModal'
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
 import Popover from 'react-bootstrap/Popover'
 import { useNavigate } from 'react-router-dom'
@@ -24,7 +24,7 @@ function Header() {
   const [showLogOut, setShowLogOut] = useState(false)
   const [showMovies, setShowMovies] = useState(false)
   const [showCinema, setShowCinema] = useState(false)
-  const [showLoginPage, setShowLoginPage] = useState(false)
+  const [showLoginModal, setShowLoginModal] = useState(false)
   const [showPopover, setShowPopover] = useState(false)
 
   const popover = (
@@ -95,7 +95,7 @@ function Header() {
 
           <Nav.Link className='c-navlink px-3 py-2'
             style={{ color: 'black' }}
-            onClick={() => !isLoggedIn ? setShowLoginPage(!showLoginPage) : navigate('/myorders')}
+            onClick={() => !isLoggedIn ? setShowLoginModal(!showLoginModal) : navigate('/myorders')}
           >
             Orders</Nav.Link>
 
@@ -108,7 +108,7 @@ function Header() {
           {!isLoggedIn ? (
             <button
               className='c-login-btn'
-              onClick={() => setShowLoginPage(true)} >
+              onClick={() => setShowLoginModal(true)} >
 
               <span className='text-white fw-semibold'>Log in / Signup</span>
               <div className='rounded-circle profile-icon'>
@@ -178,10 +178,10 @@ function Header() {
           hide={() => setShowCinema(false)} />
       }
 
-      {showLoginPage &&
-        <LoginPage
-          show={showLoginPage}
-          hide={() => setShowLoginPage(false)} />
+      {showLoginModal &&
+        <LoginModal
+          show={showLoginModal}
+          hide={() => setShowLoginModal(false)} />
       }
 
       {showLogOut &&
