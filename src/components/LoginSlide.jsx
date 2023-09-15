@@ -1,58 +1,77 @@
 import PropTypes from 'prop-types'
-import { useState, useEffect } from 'react'
-import { Button, Form } from "react-bootstrap"
+import { useState } from 'react'
+import { Formik, Form, Field, ErrorMessage } from "formik"
+import { Button } from 'react-bootstrap'
 import { useDispatch } from 'react-redux'
 import { login } from '../redux/slices/authSlice'
+import * as Yup from 'yup'
+import supabase from '../helpers/supabase'
 
 function LoginSlide({ hide }) {
 
   const dispatch = useDispatch()
 
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
   const [err, setErr] = useState('')
 
-  useEffect(() => setErr(''), [email, password])
+  const validationSchema = Yup.object().shape({
+    email: Yup.string()
+      .required('Email is Required')
+      .email('Invalid Email'),
+    password: Yup.string()
+      .required('Password is Required')
+      .min(6, 'Password must be atleast 6 characters long'),
+  })
 
-  async function handleLogin(e) {
-    e.preventDefault()
-    dispatch(login())
-    hide()
+  async function handleSubmit(values) {
+    const { data: user, error } = await supabase.auth.signInWithPassword({
+      email: values.email,
+      password: values.password
+    })
+
+    if (error) {
+      setErr(error.message)
+    } else {
+      dispatch(login({userName: user.user.user_metadata.name, email: user.user.email}))
+
+      hide()
+    }
   }
 
   return (
     <>
       <p className='h4 fw-semibold my-4'>Login with Email</p>
 
-      <Form onSubmit={handleLogin}>
-        <Form.Group>
-
-          <Form.Control
+      <Formik
+        initialValues={{ email: '', password: '' }}
+        validationSchema={validationSchema}
+        onSubmit={handleSubmit}
+      >
+        <Form>
+          <Field
             type="text"
-            required
             placeholder="Enter Email"
-            className='my-4 fw-bold user-input'
-            onChange={(e) => setEmail(e.target.value)}
+            name="email"
+            className='p-4 fw-bold w-100 user-input'
           />
+          <ErrorMessage name="email" component="div" className='text-danger' />
 
-          <Form.Control
+          <Field
             type="password"
-            required
             placeholder="Enter Password"
-            className='my-4 fw-bold user-input'
-            onChange={(e) => setPassword(e.target.value)}
+            name="password"
+            className='p-4 fw-bold w-100 mt-4 user-input'
           />
+          <ErrorMessage name="password" component="div" className='text-danger' />
 
-        </Form.Group>
-
-        <Button
-          variant="info"
-          type="submit"
-          className='text-white get-otp-btn'
-        >
-          Login
-        </Button>
-      </Form>
+          <Button
+            variant="info"
+            type="submit"
+            className='text-white get-otp-btn mt-4'
+          >
+            Login
+          </Button>
+        </Form>
+      </Formik>
 
       {err && <small className='d-block text-center text-danger mt-3'>{err}</small>}
     </>
@@ -60,7 +79,7 @@ function LoginSlide({ hide }) {
 }
 
 LoginSlide.propTypes = {
-  hide: PropTypes.func
+  hide: PropTypes.func,
 }
 
 export default LoginSlide
