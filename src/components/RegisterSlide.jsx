@@ -44,11 +44,7 @@ function RegisterSlide({ hide }) {
 
     // Stores the user in the store
     else {
-      dispatch(login({
-        userName: data.user.user_metadata.name,
-        email: data.user.email
-      }))
-
+      dispatch(login(data))
       hide() // Hides Modal
     }
   }

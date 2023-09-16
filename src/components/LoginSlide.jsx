@@ -31,8 +31,7 @@ function LoginSlide({ hide }) {
     if (error) {
       setErr(error.message)
     } else {
-      dispatch(login({userName: user.user.user_metadata.name, email: user.user.email}))
-
+      dispatch(login(user))
       hide()
     }
   }

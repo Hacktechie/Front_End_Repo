@@ -2,12 +2,14 @@ import PropTypes from 'prop-types'
 import { Modal } from "react-bootstrap"
 import { useDispatch } from 'react-redux'
 import { logout } from '../redux/slices/authSlice';
+import supabase from '../helpers/supabase';
 
 function Logout({ show, hide }) {
 
   const dispatch = useDispatch()
 
-  function handleLogout() {
+  async function handleLogout() {
+    await supabase.auth.signOut()
     dispatch(logout())
     hide()
   }

@@ -10,8 +10,30 @@ import Orders from "./pages/Orders"
 import Footer from "./components/Footer"
 import SearchBarPage from './pages/SearchBarPage'
 import ScrollToTop from './components/ScrollToTop'
+import { useDispatch } from "react-redux"
+import { login } from "./redux/slices/authSlice"
+import supabase from "./helpers/supabase"
 
 function App() {
+
+  const dispatch = useDispatch()
+  
+  // Retrrieving user if they haven't logged out
+  // User will be logged in even if page is refreshed
+  async function retrieveUser() {
+    const { data, error } = await supabase.auth.getUser()
+
+    if (error) {
+      console.log(error.message)
+    } else {
+      dispatch(login(data))
+    }
+  }
+
+  if (localStorage.getItem('sb-htqlsiblnpondpscaepr-auth-token')) {
+    retrieveUser()
+  }
+
   return (
     <div>
       <Router>
