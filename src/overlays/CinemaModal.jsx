@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types'
 import { Modal } from 'react-bootstrap';
-import {useSelector} from 'react-redux'
+import { useSelector } from 'react-redux'
 
 function CinemaModal({ show, hide }) {
 
-  const cinemas = useSelector(state => state.cinemas.cinemas)
+  const cinemas = useSelector(state => state.data.cinemas)
 
   return (
     <Modal
@@ -19,7 +19,7 @@ function CinemaModal({ show, hide }) {
 
         <div className="modal-grid cinemas-grid">
           <p className='fw-semibold'>Chennai</p>
-         
+
           {cinemas?.map(cinema => (
             <div key={cinema.id} className='py-3 cinemas'>
               {cinema.name}

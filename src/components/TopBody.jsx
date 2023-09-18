@@ -8,7 +8,7 @@ import { useSelector } from 'react-redux'
 
 const TopBody = () => {
 
-  const movies = useSelector(state => state.movies.movies)
+  const movies = useSelector(state => state.data.movies)
   
   const [isRadioVisible, setIsRadioVisible] = useState(true);
   const [rotationAngle, setRotationAngle] = useState(180);
@@ -190,8 +190,8 @@ const TopBody = () => {
           <h1>Movies in Chennai</h1>
           <div className="movie_cards_loopp" style={{ height: viewAll ? 'auto' : '1360px' }}>
             {movies.map(movie => (
-              <Card className='runningmovies_cards' key={movie.contentId} >
-                <Card.Img variant="top" src={movie.imgPath} alt={movie.label} />
+              <Card className='runningmovies_cards' key={movie.id} >
+                <Card.Img variant="top" src={movie.imgpath} alt={movie.label} />
                 <Card.Body className='runningmovies_card_body'>
 
                   <div>

@@ -5,7 +5,7 @@ import MovieCompSmall from '../components/MovieCompSmall';
 
 function MoviesModal({ show, hide }) {
 
-  const movies = useSelector(state => state.movies.movies)
+  const movies = useSelector(state => state.data.movies)
 
   return (
     <Modal
@@ -21,7 +21,7 @@ function MoviesModal({ show, hide }) {
         <div className="modal-grid movies-grid">
 
           {movies.map(movie => (
-            <MovieCompSmall key={movie.contentId} movie={movie} />
+            <MovieCompSmall key={movie.id} movie={movie} />
           ))}
 
         </div>

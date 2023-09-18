@@ -1,5 +1,8 @@
-import Header from "./components/Header"
+import { useEffect } from "react"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
+import { useDispatch } from "react-redux"
+import { login } from "./redux/slices/authSlice"
+import Header from "./components/Header"
 import Home from "./pages/Home"
 import Profile from "./pages/Profile"
 import TermsandConditions from "./pages/TermsandConditions"
@@ -10,29 +13,31 @@ import Orders from "./pages/Orders"
 import Footer from "./components/Footer"
 import SearchBarPage from './pages/SearchBarPage'
 import ScrollToTop from './components/ScrollToTop'
-import { useDispatch } from "react-redux"
-import { login } from "./redux/slices/authSlice"
 import supabase from "./helpers/supabase"
+import fetchData from "./helpers/fetchData"
 
 function App() {
 
   const dispatch = useDispatch()
-  
-  // Retrrieving user if they haven't logged out
-  // User will be logged in even if page is refreshed
-  async function retrieveUser() {
-    const { data, error } = await supabase.auth.getUser()
 
-    if (error) {
-      console.log(error.message)
-    } else {
-      dispatch(login(data))
+  useEffect(() => {
+    // Retrieving user if they haven't logged out
+    // User will be logged in even if page is refreshed
+    if (localStorage.getItem('sb-htqlsiblnpondpscaepr-auth-token')) {
+      (async function () {
+        const { data, error } = await supabase.auth.getUser()
+
+        if (error) {
+          console.log(error.message)
+        } else {
+          dispatch(login(data))
+        }
+      })();
     }
-  }
 
-  if (localStorage.getItem('sb-htqlsiblnpondpscaepr-auth-token')) {
-    retrieveUser()
-  }
+    fetchData(dispatch)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   return (
     <div>

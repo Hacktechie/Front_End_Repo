@@ -1,9 +1,12 @@
 import { useState } from 'react';
 import Slider from 'react-slick';
-import { upcomingMovies } from '../../data/upcomingMovies'
+import { useSelector } from 'react-redux';
 import '../stylesheets/upcomeingcarousel.css';
 
 function UpcomeingCarousel() {
+
+  const upcomingMovies = useSelector(state => state.data.upcomingMovies)
+  
   const [defaultImage, setDefaultImage] = useState({});
   const settings = {
     dots: true,
@@ -18,7 +21,6 @@ function UpcomeingCarousel() {
         settings: {
           slidesToShow: 3,
           slidesToScroll: 2,
-          infinite: true,
           dots: true,
         },
       },
@@ -56,14 +58,14 @@ function UpcomeingCarousel() {
 
       </div>
       <Slider {...settings}>
-        {upcomingMovies.map((item, index) => (
-          <div key={index} className="upcomeig_card">
+        {upcomingMovies.map(item => (
+          <div key={item.upcoming_id} className="upcomeig_card">
             <div className="card-top">
               <img
                 src={
                   defaultImage[item.title] === item.title
                     ? defaultImage.linkDefault
-                    : item.linkImg
+                    : item.img_url
                 }
                 alt={item.title}
                 onError={handleErrorImage}
@@ -74,8 +76,8 @@ function UpcomeingCarousel() {
                 <h1>{item.title}</h1>
 
                 <div className="card-bottom">
-                  <span>{item.price}</span>
-                  <span className="category">{item.category}</span>
+                  <span>{item.language}</span>
+                  <span className="category">{item.grn}</span>
                 </div>
               </div>
             </div>

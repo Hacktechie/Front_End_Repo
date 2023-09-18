@@ -7,13 +7,28 @@ import MovieCompSmall from '../components/MovieCompSmall'
 
 function SearchBarPage() {
 
-  const movies = useSelector(state => state.movies.movies)
-  const cinemas = useSelector(state => state.cinemas.cinemas)
+  const movies = useSelector(state => state.data.movies)
+  const cinemas = useSelector(state => state.data.cinemas)
   const [showMovies, setShowMovies] = useState(true)
 
+  const bodyStyles = {
+    position: 'relative',
+    zIndex: 2,
+    marginTop: '-92px',
+    paddingTop: '70px',
+    backgroundColor: '#f2f2f2'
+  }
+
+  const searchStyles = {
+    position: 'fixed',
+    top: 0,
+    width: '100%',
+    boxShadow: '0 5px 20px rgba(0,41,112,.1)'
+  }
+
   return (
-    <>
-      <div className="bg-white">
+    <div style={bodyStyles}>
+      <div className="bg-white" style={searchStyles}>
 
         <div className="container d-flex align-items-center gap-3 p-4">
 
@@ -59,7 +74,7 @@ function SearchBarPage() {
 
         {showMovies ?
           movies.map(movie => (
-            <MovieCompSmall key={movie.contentId} movie={movie} />
+            <MovieCompSmall key={movie.id} movie={movie} />
           ))
           :
           cinemas?.map(cinema => (
@@ -68,7 +83,7 @@ function SearchBarPage() {
             </div>
           ))}
       </div>
-    </>
+    </div>
   )
 }
 

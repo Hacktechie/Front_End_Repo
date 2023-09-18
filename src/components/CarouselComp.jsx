@@ -1,10 +1,12 @@
+import { useSelector } from 'react-redux';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import '../stylesheets/carousel.css'
-import { carouselData } from '../../data/carouselData';
 
 function CarouselComp() {
+
+  const carouselData = useSelector(state => state.data.carousel)
 
   const settings = {
     slidesToShow: 3,
@@ -26,7 +28,7 @@ function CarouselComp() {
           {carouselData.map((item) => (
             <img
               key={item.id}
-              src={item.image_url}
+              src={item.img_url}
               alt={item.name}
               className='carousel-img' />
           ))}
@@ -34,7 +36,7 @@ function CarouselComp() {
           {carouselData.map((item) => (
             <img
               key={item.id}
-              src={item.image_url}
+              src={item.img_url}
               alt={item.name}
               className='carousel-img' />
           ))}

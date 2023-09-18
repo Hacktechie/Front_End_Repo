@@ -6,7 +6,7 @@ function MovieCompSmall({ movie }) {
     <div className='movies' >
 
       <div>
-        <img src={movie.imgPath}
+        <img src={movie.imgpath}
           alt={movie.label}
           height={52}
           width={55}
