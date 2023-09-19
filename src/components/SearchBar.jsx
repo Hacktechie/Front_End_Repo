@@ -9,7 +9,7 @@ import '../stylesheets/searchBar.css'
 
 function SearchBar() {
 
-  const [selectA, setSelectA] = useState(true)
+  const [showRunningMovies, setShowRunningMovies] = useState(true)
   const navigate = useNavigate()
 
   return (
@@ -21,24 +21,24 @@ function SearchBar() {
           type="radio"
           name="options"
           className='toggle_grp'
-          onClick={() => setSelectA(!selectA)}
+          onClick={() => setShowRunningMovies(!showRunningMovies)}
         >
           <ToggleButton
-            value="option1"
+            value="NowShowing"
             className='toggle_btn'
             style={{
-              backgroundColor: selectA && 'white',
-              fontWeight: selectA && '600'
+              backgroundColor: showRunningMovies && 'white',
+              fontWeight: showRunningMovies && '600'
             }}>
             Now Showing
           </ToggleButton>
 
           <ToggleButton
-            value="option2"
+            value="ComingSoon"
             className='toggle_btn'
             style={{
-              backgroundColor: !selectA && 'white',
-              fontWeight: !selectA && '600'
+              backgroundColor: !showRunningMovies && 'white',
+              fontWeight: !showRunningMovies && '600'
             }}>
             Coming Soon
           </ToggleButton>

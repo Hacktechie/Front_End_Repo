@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import Slider from 'react-slick';
 import { useSelector } from 'react-redux';
 import '../stylesheets/upcomeingcarousel.css';
@@ -6,8 +5,7 @@ import '../stylesheets/upcomeingcarousel.css';
 function UpcomeingCarousel() {
 
   const upcomingMovies = useSelector(state => state.data.upcomingMovies)
-  
-  const [defaultImage, setDefaultImage] = useState({});
+
   const settings = {
     dots: true,
     infinite: false,
@@ -42,13 +40,6 @@ function UpcomeingCarousel() {
     ],
   };
 
-  const handleErrorImage = (data) => {
-    setDefaultImage((prev) => ({
-      ...prev,
-      [data.target.alt]: data.target.alt,
-    }));
-  };
-
   return (
 
     <div className='MainCard container-flow container-lg p-4 pb-5'>
@@ -59,21 +50,16 @@ function UpcomeingCarousel() {
       </div>
       <Slider {...settings}>
         {upcomingMovies.map(item => (
-          <div key={item.upcoming_id} className="upcomeig_card">
+          <div key={item.id} className="upcomeig_card">
             <div className="card-top">
               <img
-                src={
-                  defaultImage[item.title] === item.title
-                    ? defaultImage.linkDefault
-                    : item.img_url
-                }
-                alt={item.title}
-                onError={handleErrorImage}
+                src={item.imgpath}
+                alt={item.label}
                 style={{ height: '100%', width: '100%' }}
               />
 
               <div className="bot">
-                <h1>{item.title}</h1>
+                <h1>{item.label}</h1>
 
                 <div className="card-bottom">
                   <span>{item.language}</span>

@@ -46,40 +46,17 @@ function TermsandConditions() {
           summary='Pre Booking'
           text={
             <ol>
-              <li>
-                To increase your chances of confirming tickets, choose minimum 3 cinemas. Once you Pre-book tickets with us, giving all the necessary details that includes Showtime &amp; preferred theatre, we will send you a pre-book confirmation SMS/E-Mail. But it doesn&apos;t mean your tickets are confirmed and You should not show this message in the ticket counter.
-              </li>
-              <li>
-                Once bookings open at the time of films release, we block the seats for you in your preferred theatre, and send you the order status with confirmed seat details through SMS/E-mail. Show this confirmation message the ticket counter &amp; enjoy the show!
-              </li>
-              <li>
-                If there is any difference between the actual ticket price, and the amount you pay to pre-book the ticket, TicketNew ensures that the extra money will be refunded to you in 3-10 working days.
-              </li>
-              <li>
-                The tickets will be allocated for you by Paytm TicketNew in the preferred theatres only if the seats are available for the requested show.
-              </li>
-              <li>
-                If the seats are not available at the time of release date, your money will be refunded to you, that includes convenience fee, in 3 to 10 working days.
-              </li>
-              <li>
-                Refunds will be credited to the wallets, UPI, netbanking, credit or debit card, (i.e) through the same mode by which you paid us.
-              </li>
-              <li>
-                Please do remember that you can book a maximum of only 10 tickets &amp; not more than that.
-              </li>
-              <li>
-                If your Pre-book fails during transaction, or if you don&apos;t receive any SMS after the pre-book, please feel free to call us on 1234567890
-              </li>
-              <li>
-                If the movie gets postponed or the release gets cancelled, your money will be refunded in 3 to 10 working days.
-              </li>
-              <li>
-                Paytm TicketNew reserves rights to modify/change terms applicable to the program without any reasons or prior intimation.
-              </li>
-              <li>
-                Paytm TicketNew reserves the right to disqualify any user or booked tickets if any fraudulent activity is identified as being carried out for the purpose of availing the benefits under the program.
-              </li>
-
+              <li>To increase your chances of confirming tickets, choose minimum 3 cinemas. Once you Pre-book tickets with us, giving all the necessary details that includes Showtime &amp; preferred theatre, we will send you a pre-book confirmation SMS/E-Mail. But it doesn&apos;t mean your tickets are confirmed and You should not show this message in the ticket counter.</li>
+              <li>Once bookings open at the time of films release, we block the seats for you in your preferred theatre, and send you the order status with confirmed seat details through SMS/E-mail. Show this confirmation message the ticket counter &amp; enjoy the show!</li>
+              <li>If there is any difference between the actual ticket price, and the amount you pay to pre-book the ticket, TicketNew ensures that the extra money will be refunded to you in 3-10 working days.</li>
+              <li>The tickets will be allocated for you by Paytm TicketNew in the preferred theatres only if the seats are available for the requested show.</li>
+              <li>If the seats are not available at the time of release date, your money will be refunded to you, that includes convenience fee, in 3 to 10 working days.</li>
+              <li>Refunds will be credited to the wallets, UPI, netbanking, credit or debit card, (i.e) through the same mode by which you paid us.</li>
+              <li>Please do remember that you can book a maximum of only 10 tickets &amp; not more than that.</li>
+              <li>If your Pre-book fails during transaction, or if you don&apos;t receive any SMS after the pre-book, please feel free to call us on 1234567890</li>
+              <li>If the movie gets postponed or the release gets cancelled, your money will be refunded in 3 to 10 working days.</li>
+              <li>Paytm TicketNew reserves rights to modify/change terms applicable to the program without any reasons or prior intimation.</li>
+              <li>Paytm TicketNew reserves the right to disqualify any user or booked tickets if any fraudulent activity is identified as being carried out for the purpose of availing the benefits under the program.</li>
             </ol>
           }
         />

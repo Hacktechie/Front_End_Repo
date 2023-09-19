@@ -9,7 +9,9 @@ function SearchBarPage() {
 
   const movies = useSelector(state => state.data.movies)
   const cinemas = useSelector(state => state.data.cinemas)
+
   const [showMovies, setShowMovies] = useState(true)
+  const [searchQuery, setSearchQuery] = useState('')
 
   const bodyStyles = {
     position: 'relative',
@@ -37,6 +39,8 @@ function SearchBarPage() {
           <input
             type="text"
             className='search_input'
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
             placeholder='Search Movie or a Cinema' />
 
           <Link to='/' style={{ textDecoration: 'none' }}>
@@ -73,15 +77,18 @@ function SearchBarPage() {
         <hr />
 
         {showMovies ?
-          movies.map(movie => (
-            <MovieCompSmall key={movie.id} movie={movie} />
-          ))
+          movies
+            .filter(movie => movie.label.toLowerCase().includes(searchQuery.toLowerCase()))
+            .map(movie => <MovieCompSmall key={movie.id} movie={movie} />)
           :
-          cinemas?.map(cinema => (
-            <div key={cinema.id} className='py-3 cinemas'>
-              {cinema.name}
-            </div>
-          ))}
+          cinemas
+            .filter(cinema => cinema.name.toLowerCase().includes(searchQuery.toLowerCase()))
+            .map(cinema => (
+              <div key={cinema.id} className='py-3 cinemas'>
+                {cinema.name}
+              </div>
+            ))
+        }
       </div>
     </div>
   )
