@@ -32,25 +32,20 @@
   border-radius: 20px;
 }
 
-.clear_filter {
-  color: hsla(0, 0%, 6%, .22);
-  display: block;
-  text-align: center;
+.movies_filter_card .clear_filter {
+  font-size: 16px;
+  font-weight: bold;
   padding: 14px;
-  border-top: 1px solid hsla(0, 0%, 6%, .13);
-  font-size: 14px;
-  /* color: #00b8f5; */
-  font-weight: 600;
-  letter-spacing: -.08px;
-  line-height: 20px;
-  position: relative;
-  bottom: 0;
-  width: 283px;
-  background: #fff;
-  box-sizing: border-box;
-  cursor: pointer;
+  border: none;
+  border-radius: 0;
+  border-top: 1px solid grey !important;
 }
 
+.clear_filter:disabled {
+  border: none;
+  color: #333 !important;
+}
+ 
 .runningmovies_list-container {
   flex-grow: 1;
   background-color: #fff;
@@ -61,7 +56,7 @@
 
 .movie_cards_loopp {
   display: grid;
-  gap: 20px;
+  row-gap: 20px;
   justify-content: space-between;
   grid-template-columns: repeat(auto-fill, 300px);
   overflow: hidden;
@@ -179,4 +174,11 @@
 
 .form-check-input:checked+.form-check-label {
   font-weight: bold;
+}
+
+@media (min-width: 1200px) {
+  .movie_cards_loopp {
+    justify-content: start;
+    column-gap: 20px;
+  } 
 }

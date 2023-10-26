@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import PropTypes from 'prop-types'
 import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup';
 import ToggleButton from 'react-bootstrap/ToggleButton';
 import { LuSearch } from 'react-icons/lu'
@@ -7,9 +7,8 @@ import { IoIosArrowDown } from 'react-icons/io'
 import { useNavigate } from 'react-router-dom';
 import '../stylesheets/searchBar.css'
 
-function SearchBar() {
+function SearchBar({ showRunningMovies, setShowRunningMovies }) {
 
-  const [showRunningMovies, setShowRunningMovies] = useState(true)
   const navigate = useNavigate()
 
   return (
@@ -63,6 +62,11 @@ function SearchBar() {
 
     </div>
   )
+}
+
+SearchBar.propTypes = {
+  showRunningMovies: PropTypes.bool,
+  setShowRunningMovies: PropTypes.func
 }
 
 export default SearchBar

@@ -1,30 +1,32 @@
-import { useState } from 'react';
-import Card from 'react-bootstrap/Card';
-import ListGroup from 'react-bootstrap/ListGroup';
-import Form from 'react-bootstrap/Form';
+import PropTypes from 'prop-types'
+import { useEffect, useState } from 'react'
+import { Card } from 'react-bootstrap'
+import MovieCard from './MovieCard'
+import LanguageFilter from './LanguageFilter'
+import FormatFilter from './FormatFilter'
 import '../stylesheets/topbody.css'
-import { IoIosArrowDown } from 'react-icons/io'
-import { useSelector } from 'react-redux'
 
-const TopBody = () => {
-
-  const movies = useSelector(state => state.data.movies)
+const TopBody = ({ movies, hideFormatFilter }) => {
   
-  const [isRadioVisible, setIsRadioVisible] = useState(true);
-  const [rotationAngle, setRotationAngle] = useState(180);
+  const [viewAll, setViewAll] = useState(false)
+  
+  // States to apply filter
+  const [langFilter, setLangFilter] = useState('')
+  const [formatFilter, setFormatFilter] = useState('2D')
 
-  const toggleRadioVisibility = () => {
-    setIsRadioVisible(!isRadioVisible);
-    setRotationAngle(rotationAngle + 180);
-  };
+  // Function to clear applied filters
+  function handleClearFilter() {
+    setLangFilter('')
+    setFormatFilter('2D')
+  }
 
-  const [isRadioVisibl, setIsRadioVisibl] = useState(true);
-  const [rotationAngl, setRotationAngl] = useState(180);
+  // Filtered movie array
+  const filteredList = movies.filter(movie => {
+    const langMatch = movie.language.includes(langFilter)
+    const formatMatch = movie.scrnfmt ? movie.scrnfmt.includes(formatFilter) : true
 
-  const toggleRadioVisibilit = () => {
-    setIsRadioVisibl(!isRadioVisibl);
-    setRotationAngl(rotationAngl + 180);
-  };
+    return langMatch && formatMatch
+  })
 
   const filter_card = {
     borderRadius: '20px',
@@ -32,208 +34,70 @@ const TopBody = () => {
     border: 'none',
   }
 
-  const [viewAll, setViewAll] = useState(false)
+  useEffect(() => {
+    hideFormatFilter && setFormatFilter('2D')
+  }, [hideFormatFilter])
 
   return (
-    <>
-      <div className='container-flow container-lg d-flex justify-content-center px-0 py-4'>
-        
-        {/* filter sidebar */}
+    <div className='container-flow container-lg d-flex justify-content-center px-0 py-4'>
 
-        <Card className='movies_filter_card'
-          style={filter_card}>
+      {/* filter sidebar */}
+      <Card className='movies_filter_card' style={filter_card}>
 
-          <div className='movies_filter-container'>
+        <div className='movies_filter-container'>
 
-            <div className="laguage_filter">
+          <LanguageFilter
+            langFilter={langFilter}
+            setLangFilter={setLangFilter}
+          />
 
-              <div className='dropdown-container ' onClick={toggleRadioVisibility}>
-                
-                <span>Languages</span>
-                <div className='arrow'>
-                  <IoIosArrowDown size={22} style={{ transform: `rotate(${rotationAngle}deg)` }} />
-                </div>
+          {!hideFormatFilter &&
+            <FormatFilter
+              formatFilter={formatFilter}
+              setFormatFilter={setFormatFilter}
+            />
+          }
+        </div>
 
-              </div>
+        <button
+          className='btn text-primary clear_filter'
+          disabled={langFilter === '' && formatFilter === '2D'}
+          onClick={handleClearFilter}>
+          Clear all filters
+        </button>
 
-              {isRadioVisible && (
-                <div className="filter_radio" id='radios'>
-                  <Card style={{ border: 'none' }}>
-                    <Card.Body>
+      </Card>
 
-                      <Form>
-                        {['radio'].map((type) => (
-                          <div key={`default-${type}`} className="mb-3">
+      {/* Movie grid */}
 
-                            <Form.Check
-                              label="All "
-                              name="group1"
-                              type={type}
-                              id={`default-${type}-1`}
+      <div className='runningmovies_list-container'>
+        <h1>Movies in Chennai</h1>
+        <div className='movie_cards_loopp' style={{ maxHeight: viewAll ? 'fit-content' : '1360px' }}>
 
-                            />
-                            <Form.Check
+          {filteredList.map(movie =>
+            <MovieCard key={movie.id} movie={movie} />
+          )}
 
-                              label="Tamil"
-                              name="group1"
-                              type={type}
-                              id={`default-${type}-2`}
-                            />
-                            <Form.Check
-                              gap={2}
-                              label="English"
-                              name="group1"
-                              type={type}
-                              id={`default-${type}-3`}
-                            />
-                            <Form.Check
-                              gap={2}
-                              label="Malayalam"
-                              name="group1"
-                              type={type}
-                              id={`default-${type}-4`}
-                            />
-                            <Form.Check
-                              gap={2}
-                              label="Telugu"
-                              name="group1"
-                              type={type}
-                              id={`default-${type}-5`}
-                            />
-                            <Form.Check
-                              gap={2}
-                              label="Kannada"
-                              name="group1"
-                              type={type}
-                              id={`default-${type}-6`}
-                            />
-                            <Form.Check
-                              gap={2}
-                              label="Hindi"
-                              name="group1"
-                              type={type}
-                              id={`default-${type}-7`}
-                            />
-                            <Form.Check
-                              gap={2}
-                              label="Korean"
-                              name="group1"
-                              type={type}
-                              id={`default-${type}-8`}
-                            />
-                          </div>
-                        ))}
-                      </Form>
+        </div>
 
-                    </Card.Body>
+        <div className='text-center' >
 
-                  </Card>
-                </div>
-              )}
-            </div>
+          <button
+            className='btn fw-semibold border rounded-pill mt-4'
+            onClick={() => setViewAll(!viewAll)}
+          >
+            {viewAll ? `View Less` : `View all ${filteredList.length} movies`}
+          </button>
 
-            <div className="format_filter">
-              <div className='dropdown-container-2 ' onClick={toggleRadioVisibilit}>
-                <span>Format</span>
-                <div className='arrow'>
-                  <IoIosArrowDown size={22} style={{ transform: `rotate(${rotationAngl}deg)` }} />
-                </div>
-              </div>
-
-              {isRadioVisibl && (
-                <div className="filter_radio" id='radios'>
-                  <Card style={{ width: '15rem', border: 'none' }}>
-                    <Card.Body>
-
-                      <Form>
-                        {['radio'].map((type) => (
-                          <div key={`default-${type}`} className="mb-3">
-                            <Form.Check
-
-                              label="All"
-                              name="group1"
-                              type={type}
-                              id={`default-${type}-1`}
-                            />
-                            <Form.Check
-
-                              label="IMAX"
-                              name="group1"
-                              type={type}
-                              id={`default-${type}-2`}
-                            />
-                            <Form.Check
-                              gap={2}
-                              label="2D"
-                              name="group1"
-                              type={type}
-                              id={`default-${type}-3`}
-                            />
-                          </div>
-                        ))}
-                      </Form>
-
-                    </Card.Body>
-                  </Card>
-                </div>
-              )}
-            </div>
-          </div>
-
-          <span className='clear_filter'>Clear all filters</span>
-
-        </Card>
-
-        {/* Movie grid */}
-
-        <div className='runningmovies_list-container'>
-          <h1>Movies in Chennai</h1>
-          <div className="movie_cards_loopp" style={{ height: viewAll ? 'auto' : '1360px' }}>
-            {movies.map(movie => (
-              <Card className='runningmovies_cards' key={movie.id} >
-                <Card.Img variant="top" src={movie.imgpath} alt={movie.label} />
-                <Card.Body className='runningmovies_card_body'>
-
-                  <div>
-                    <div className='movie_cards_moviename d-flex'  >
-                      <span className='moviename' style={{ fontWeight: "bold" }} >{movie.label}</span>
-                    </div>
-                    <div className="movie_cards_movierateinglang d-flex gap-2">
-                      <span className="movierateing">
-                        {movie.censor}
-                      </span>
-                      <div className="dot" >
-                        <span className="dott"></span>
-                      </div>
-                      <span className='movielang mx-1' >
-                        {movie.language}
-                      </span>
-                    </div>
-                  </div>
-                </Card.Body>
-              
-                <ListGroup className="list-group-flush">
-                  <a href="#">Book Ticket</a>
-                </ListGroup>
-
-              </Card>
-            ))}
-          </div>
-
-          <div className="text-center" >
-
-            <button
-              className='btn fw-semibold border rounded-pill mt-4'
-              onClick={() => setViewAll(!viewAll)}
-            >
-              {viewAll ? `View Less` : `View all ${movies.length} movies`}
-            </button>
-
-          </div>
         </div>
       </div>
-    </>
-  );
+    </div>
+  )
 }
 
-export default TopBody;
+TopBody.propTypes = {
+  movies: PropTypes.array,
+  hideFormatFilter: PropTypes.bool
+}
+
+export default TopBody

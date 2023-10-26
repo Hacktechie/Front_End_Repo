@@ -1,11 +1,11 @@
+import PropTypes from 'prop-types'
 import Slider from 'react-slick';
-import { useSelector } from 'react-redux';
 import '../stylesheets/upcomeingcarousel.css';
 
-function UpcomeingCarousel() {
+function UpcomeingCarousel({ movies }) {
 
-  const upcomingMovies = useSelector(state => state.data.upcomingMovies)
-
+  const itemsToRender = movies.slice(0, 10)
+  
   const settings = {
     dots: true,
     infinite: false,
@@ -49,7 +49,7 @@ function UpcomeingCarousel() {
 
       </div>
       <Slider {...settings}>
-        {upcomingMovies.map(item => (
+        {itemsToRender.map(item => (
           <div key={item.id} className="upcomeig_card">
             <div className="card-top">
               <img
@@ -75,4 +75,8 @@ function UpcomeingCarousel() {
   );
 }
 
-export default UpcomeingCarousel;
+UpcomeingCarousel.propTypes = {
+  movies: PropTypes.array
+} 
+
+export default UpcomeingCarousel

@@ -33,8 +33,6 @@ function fetchData(dispatch) {
     const { data, error } = await supabase
       .from('upcoming_movies')
       .select('*')
-      .eq('language', 'Tamil')
-      .limit(10)
 
     if (error) {
       console.log(error.message)

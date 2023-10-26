@@ -12,6 +12,7 @@
     border: none;
     border-radius: 7px;
     margin: 2px;
+    z-index: 0;
 }
 
 .search_input {

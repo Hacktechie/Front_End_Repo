@@ -97,7 +97,8 @@ function Header() {
             style={{ color: 'black' }}
             onClick={() => !isLoggedIn ? setShowLoginModal(!showLoginModal) : navigate('/myorders')}
           >
-            Orders</Nav.Link>
+            Orders
+          </Nav.Link>
 
         </Nav>
 
