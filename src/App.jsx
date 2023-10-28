@@ -15,6 +15,7 @@ import SearchBarPage from './pages/SearchBarPage'
 import ScrollToTop from './components/ScrollToTop'
 import supabase from "./helpers/supabase"
 import fetchData from "./helpers/fetchData"
+import MoviePage from "./pages/MoviePage"
 
 function App() {
 
@@ -52,9 +53,10 @@ function App() {
           <Route path="/contactus" element={<ContactUs />} />
           <Route path="/feedback" element={<Feedback />} />
           <Route path="/myorders" element={<Orders />} />
-
-          {/* kailash */}
           <Route path="/search" element={<SearchBarPage />} />
+
+          {/* Dynamic Movies Route */}
+          <Route path="/movies/:id" element={<MoviePage />} />
         </Routes>
         <Footer />
       </Router>

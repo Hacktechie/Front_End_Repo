@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 import CarouselComp from '../components/CarouselComp'
 import SearchBar from '../components/SearchBar'
 import TopBody from '../components/TopBody'
-import UpcomeingCarousel from '../components/UpcomeingCarousel'
+import UpcomingCarousel from '../components/UpcomingCarousel'
 import Botmfiltr from '../components/Botmfiltr'
 
 function Home() {
@@ -20,18 +20,16 @@ function Home() {
         setShowRunningMovies={setShowRunningMovies}
       />
 
-      {
-        showRunningMovies ?
-          <>
-            <TopBody movies={runningMovies} />
-            <UpcomeingCarousel movies={upcomingMovies} />
-          </>
-          :
-          <>
-            <TopBody movies={upcomingMovies} hideFormatFilter={true} />
-            <UpcomeingCarousel movies={runningMovies} />
-          </>
-      }
+      <TopBody
+        movies={showRunningMovies ? runningMovies : upcomingMovies}
+        showRunningMovies={showRunningMovies}
+      />
+
+      <UpcomingCarousel
+        movies={showRunningMovies ? upcomingMovies : runningMovies }
+        showRunningMovies={showRunningMovies}
+        setShowRunningMovies={setShowRunningMovies}
+      />
 
       <Botmfiltr />
     </div>

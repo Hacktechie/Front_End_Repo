@@ -1,17 +1,21 @@
-import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import '../stylesheets/botmfiltr.css'
 
 const Botmfiltr = () => {
 
-  const [categori, setCategori] = useState([]);
+  const movies = useSelector(state => state.data.movies)
+  const genres = []
+  const languages = []
 
-  useEffect(() => {
-    // Fetch data from the meal categories API
-    fetch('https://www.themealdb.com/api/json/v1/1/categories.php')
-      .then(response => response.json())
-      .then(data => setCategori(data.categories))
-      .catch(error => console.error('Error fetching data:', error));
-  }, []);
+  movies.forEach(item => {
+    item.language.split(', ').forEach(innerItem => {
+      !languages.includes(innerItem) && languages.push(innerItem)
+    })
+
+    item.grn.forEach(innerItem => {
+      !genres.includes(innerItem) && genres.push(innerItem)
+    })
+  })
 
   return (
     <div className="container-flow container-lg main_btm_filter_container">
@@ -22,9 +26,9 @@ const Botmfiltr = () => {
           </div>
 
           <div className="main_btm_filter_header_lang">
-            {categori.map(category => (
-              <div className="btm_filter_header_lang" key={category.idCategory}>
-                <a href="#">{category.strCategory}</a>
+            {languages.map((lang, index) => (
+              <div className="btm_filter_header_lang" key={index}>
+                <a href="#">{lang} Movies</a>
               </div>
             ))}
 
@@ -37,9 +41,9 @@ const Botmfiltr = () => {
           </div>
           <div className="main_btm_filter_header_lang">
 
-            {categori.map(category => (
-              <div className="btm_filter_header_lang" key={category.idCategory}>
-                <a href="#">{category.strCategory}</a>
+            {genres.map((genre, index) => (
+              <div className="btm_filter_header_lang" key={index}>
+                <a href="#">{genre} Movies</a>
               </div>
             ))}
 
@@ -47,7 +51,7 @@ const Botmfiltr = () => {
         </div>
 
       </div>
-      
+
     </div>
   )
 }

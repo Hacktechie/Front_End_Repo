@@ -1,15 +1,16 @@
 import PropTypes from 'prop-types'
 import { useEffect, useState } from 'react'
 import { Card } from 'react-bootstrap'
-import MovieCard from './MovieCard'
+import RunningMovieCard from './RunningMovieCard'
+import UpcomingMovieCard from './UpcomingMovieCard'
 import LanguageFilter from './LanguageFilter'
 import FormatFilter from './FormatFilter'
 import '../stylesheets/topbody.css'
 
-const TopBody = ({ movies, hideFormatFilter }) => {
-  
+const TopBody = ({ movies, showRunningMovies }) => {
+
   const [viewAll, setViewAll] = useState(false)
-  
+
   // States to apply filter
   const [langFilter, setLangFilter] = useState('')
   const [formatFilter, setFormatFilter] = useState('2D')
@@ -35,8 +36,8 @@ const TopBody = ({ movies, hideFormatFilter }) => {
   }
 
   useEffect(() => {
-    hideFormatFilter && setFormatFilter('2D')
-  }, [hideFormatFilter])
+    showRunningMovies && setFormatFilter('2D')
+  }, [showRunningMovies])
 
   return (
     <div className='container-flow container-lg d-flex justify-content-center px-0 py-4'>
@@ -51,7 +52,7 @@ const TopBody = ({ movies, hideFormatFilter }) => {
             setLangFilter={setLangFilter}
           />
 
-          {!hideFormatFilter &&
+          {!showRunningMovies &&
             <FormatFilter
               formatFilter={formatFilter}
               setFormatFilter={setFormatFilter}
@@ -71,11 +72,17 @@ const TopBody = ({ movies, hideFormatFilter }) => {
       {/* Movie grid */}
 
       <div className='runningmovies_list-container'>
-        <h1>Movies in Chennai</h1>
+        <h1>{showRunningMovies ? 'Movies in Chennai' : 'Upcoming Movies'}</h1>
         <div className='movie_cards_loopp' style={{ maxHeight: viewAll ? 'fit-content' : '1360px' }}>
 
-          {filteredList.map(movie =>
-            <MovieCard key={movie.id} movie={movie} />
+          {showRunningMovies ? (
+            filteredList.map(movie =>
+              <RunningMovieCard key={movie.id} movie={movie} />
+            )
+          ) : (
+            filteredList.map(movie =>
+              <UpcomingMovieCard key={movie.id} movie={movie} />
+            )
           )}
 
         </div>
@@ -97,7 +104,7 @@ const TopBody = ({ movies, hideFormatFilter }) => {
 
 TopBody.propTypes = {
   movies: PropTypes.array,
-  hideFormatFilter: PropTypes.bool
+  showRunningMovies: PropTypes.bool
 }
 
 export default TopBody

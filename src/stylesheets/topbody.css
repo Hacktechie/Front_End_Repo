@@ -143,7 +143,7 @@
   padding-bottom: 16px;
 }
 
-.list-group-flush a {
+.list-group-flush span {
   text-align: center;
   text-decoration: none;
   font-size: 17px;
