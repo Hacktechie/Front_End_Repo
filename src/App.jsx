@@ -16,6 +16,7 @@ import ScrollToTop from './components/ScrollToTop'
 import supabase from "./helpers/supabase"
 import fetchData from "./helpers/fetchData"
 import MoviePage from "./pages/MoviePage"
+import NotFound from "./pages/NotFound"
 
 function App() {
 
@@ -57,6 +58,9 @@ function App() {
 
           {/* Dynamic Movies Route */}
           <Route path="/movies/:id" element={<MoviePage />} />
+
+          {/* Fallback for invalid routes */}
+          <Route path='*' element={<NotFound/>} />
         </Routes>
         <Footer />
       </Router>

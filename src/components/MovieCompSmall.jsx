@@ -1,32 +1,39 @@
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
 import { LuLanguages } from 'react-icons/lu'
 
-function MovieCompSmall({ movie }) {
+function MovieCompSmall({ movie, hide }) {
   return (
-    <div className='movies' >
+    <Link
+      to={`/movies/${movie.id}`}
+      style={{ textDecoration: 'none', color: 'black' }}
+      onClick={() => hide ? hide() : null}
+    >
 
-      <div>
-        <img src={movie.imgpath}
-          alt={movie.label}
-          height={52}
-          width={55}
-          className='rounded' />
+      <div className='movies' >
+        <div>
+          <img src={movie.imgpath}
+            alt={movie.label}
+            height={52}
+            width={55}
+            className='rounded' />
+        </div>
+        
+        <div className='py-3 movie-label'>
+          <p className='h6'>{movie.label}</p>
+          <p>
+            <LuLanguages />
+            <span className='text-secondary ms-2'>{movie.language}</span>
+          </p>
+        </div>
       </div>
-
-      <div className='py-3 movie-label'>
-        <p className='h6'>{movie.label}</p>
-        <p>
-          <LuLanguages />
-          <span className='text-secondary ms-2'>{movie.language}</span>
-        </p>
-      </div>
-
-    </div>
+    </Link>
   )
 }
 
 MovieCompSmall.propTypes = {
-  movie: PropTypes.object
+  movie: PropTypes.object,
+  hide: PropTypes.func
 }
 
 export default MovieCompSmall

@@ -49,3 +49,15 @@
   color: white;
   z-index: 0;
 }
+
+.c-spinner-container {
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.c-spinner-container > .spinner-border {
+  height: 30vh;
+  width: 30vh;
+}

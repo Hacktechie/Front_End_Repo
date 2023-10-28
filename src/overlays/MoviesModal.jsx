@@ -21,7 +21,7 @@ function MoviesModal({ show, hide }) {
         <div className="modal-grid movies-grid">
 
           {movies.map(movie => (
-            <MovieCompSmall key={movie.id} movie={movie} />
+            <MovieCompSmall key={movie.id} movie={movie} hide={hide} />
           ))}
 
         </div>
