@@ -36,7 +36,7 @@ const TopBody = ({ movies, showRunningMovies }) => {
   }
 
   useEffect(() => {
-    showRunningMovies && setFormatFilter('2D')
+    !showRunningMovies && setFormatFilter('2D')
   }, [showRunningMovies])
 
   return (
@@ -52,7 +52,7 @@ const TopBody = ({ movies, showRunningMovies }) => {
             setLangFilter={setLangFilter}
           />
 
-          {!showRunningMovies &&
+          {showRunningMovies &&
             <FormatFilter
               formatFilter={formatFilter}
               setFormatFilter={setFormatFilter}
