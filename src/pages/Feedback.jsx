@@ -5,9 +5,9 @@ function Feedback() {
     <Form>
       <div
         className="container bg-white p-5 my-5 border"
-        style={{ borderRadius: '30px', userSelect: 'none', fontSize: '16px' }}>
+        style={{ borderRadius: '30px', userSelect: 'none' }}>
 
-        <h1 className="fw-bold mb-5">Feedback</h1>
+        <h3 className="fw-bold mb-5">Feedback</h3>
 
         <div className="d-flex flex-column gap-4 mb-5">
           <h5>Please select Feedback Type</h5>
@@ -66,7 +66,7 @@ function Feedback() {
               type="submit"
               value="Submit"
               className="btn btn-info text-white fw-semibold p-3 col-12 col-md-5 col-lg-4 border"
-              style={{ borderRadius: '10px', fontSize: '16px' }} />
+              style={{ borderRadius: '10px' }} />
           </div>
 
         </div>

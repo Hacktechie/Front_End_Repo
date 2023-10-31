@@ -12,7 +12,7 @@ function Footer() {
     <footer className="py-5 mt-4">
       <div className="container-flow container-lg">
 
-        <div className="d-flex gap-5 py-5 footer_row1">
+        <div className="d-flex gap-3 gap-lg-5 py-5 footer_row1">
 
           <h4 className='fw-semibold text-black m-0'>Download Paytm <br /> Ticketnew App</h4>
 
@@ -32,16 +32,16 @@ function Footer() {
 
           </div>
 
-          <div className='d-flex gap-4 ms-auto'>
+          <div className='d-flex gap-4 ms-lg-auto'>
 
-            <Link to='/contactus' className='d-flex flex-column align-items-center text-black text-decoration-none'>
+            <Link to='/contactus' className='d-flex flex-lg-column align-items-center text-black text-decoration-none'>
               <div className='p-2 rounded-circle border'>
                 <IoIosCall size={30} style={{ color: '#606060' }} />
               </div>
               <span style={{ fontSize: '12px' }}>Customer Care</span>
             </Link>
 
-            <Link to='/faq' className='d-flex flex-column align-items-center text-black text-decoration-none'>
+            <Link to='/faq' className='d-flex flex-lg-column align-items-center text-black text-decoration-none'>
               <div className='p-2 rounded-circle border'>
                 <TbMessages size={30} style={{ color: '#606060' }} />
               </div>
@@ -76,7 +76,7 @@ function Footer() {
             <li><Link to='/faq'>Help</Link></li>
           </ul>
 
-          <ul>
+          <ul className='mb-0'>
             <li>
               <h5 className='fw-bold text-black'>Cinemas</h5>
             </li>
@@ -90,7 +90,7 @@ function Footer() {
           </ul>
 
           <ul>
-            <li>
+            <li className='d-none d-lg-block'>
               <h5 className='fw-bold text-black'>&nbsp;</h5>
             </li>
 

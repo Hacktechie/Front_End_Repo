@@ -3,9 +3,9 @@ import CustomSummary from "../components/CustomSummary"
 function Faq() {
   return (
     <div className="container bg-white p-5 my-5 border" style={{ borderRadius: '30px' }}>
-      <h1 className="fw-bold mb-5">FAQ</h1>
+      <h3 className="fw-bold mb-5">FAQ</h3>
 
-      <ul className='bg-white list-unstyled d-flex flex-column gap-2 summary-list' style={{ fontSize: '16px' }}>
+      <ul className='bg-white list-unstyled d-flex flex-column gap-2 summary-list'>
 
         <CustomSummary
           summary='Will Paytm TicketNew ask for my personal and bank details to book tickets?'

@@ -4,7 +4,7 @@
 }
 
 #searchbar .toggle_btn {
-    font-size: 12px;
+    font-size: 0.9rem;
     font-weight: normal;
     color: black;
     background-color: transparent;
@@ -17,7 +17,6 @@
 
 .search_input {
     flex-grow: 1;
-    font-size: 16px;
     font-weight: 500;
     color: rgb(160, 160, 160);
     border: none;
@@ -38,10 +37,15 @@
 }
 
 .c-movie_cinema_btn {
-    font-size: 16px !important;
     border: none !important;
 }
 
 .c-movie_cinema_btn:hover {
     border: none;
+}
+
+@media (max-width: 991px) {
+    #searchbar {
+        display: none;
+    }
 }

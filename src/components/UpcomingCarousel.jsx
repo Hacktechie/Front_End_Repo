@@ -3,44 +3,40 @@ import Slider from 'react-slick'
 import UpcomingMovieCard from './UpcomingMovieCard'
 import '../stylesheets/upcomeingcarousel.css'
 import RunningMovieCard from './RunningMovieCard'
+import { useEffect, useState } from 'react'
 
 function UpcomingCarousel({ movies, showRunningMovies, setShowRunningMovies }) {
 
-  const itemsToRender = movies.slice(0, 10)
+  const [itemsToRender, setItemsToRender] = useState([])
 
   const settings = {
     dots: true,
     infinite: false,
     speed: 500,
     slidesToShow: 4,
-    slidesToScroll: 1,
-    initialSlide: 0,
     responsive: [
       {
-        breakpoint: 1024,
+        breakpoint: 768,
         settings: {
           slidesToShow: 3,
-          slidesToScroll: 2,
-          dots: true,
         },
       },
       {
-        breakpoint: 600,
+        breakpoint: 576,
         settings: {
-          slidesToShow: 1,
-          slidesToScroll: 2,
-          initialSlide: 2,
+          slidesToShow: 2,
         },
       },
       {
-        breakpoint: 480,
+        breakpoint: 380,
         settings: {
           slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
-  };
+        }
+      }
+    ]
+  }
+
+  useEffect(() => setItemsToRender(movies.slice(0, 8)), [movies])
 
   return (
 

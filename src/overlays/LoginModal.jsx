@@ -7,7 +7,6 @@ import { Modal, Image, Button } from 'react-bootstrap'
 import { GrClose } from 'react-icons/gr'
 
 function LoginModal({ show, hide }) {
-  
 
   const [isNewUser, setIsNewUser] = useState(false)
 

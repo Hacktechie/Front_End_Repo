@@ -32,7 +32,7 @@ function FormatFilter({ formatFilter, setFormatFilter }) {
             <Card.Body>
 
               <Form>
-                <div className='mb-3'>
+                <div>
 
                   <Form.Check
                     label='All'

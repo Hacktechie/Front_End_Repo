@@ -17,6 +17,7 @@ import supabase from "./helpers/supabase"
 import fetchData from "./helpers/fetchData"
 import MoviePage from "./pages/MoviePage"
 import NotFound from "./pages/NotFound"
+import MobileNav from "./components/MobileNav"
 
 function App() {
 
@@ -63,6 +64,7 @@ function App() {
           <Route path='*' element={<NotFound/>} />
         </Routes>
         <Footer />
+        <MobileNav />
       </Router>
     </div>
   )

@@ -20,8 +20,13 @@ header {
   width: 90%;
 }
 
+.brand-logo {
+  height: 54px;
+  width: 108px;
+}
+
 .c-navlink {
-  font-size: 18px !important;
+  font-size: 1.4rem !important;
   border-radius: 5px;
 }
 
@@ -105,7 +110,7 @@ header {
 }
 
 .movies {
-  font-size: 12px;
+  font-size: 0.9rem;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -122,7 +127,7 @@ header {
 } 
 
 .cinemas-grid p {
-  font-size: 16px;
+  font-size: 1.2rem;
   padding: 0;
   margin: 0;
 }
@@ -156,7 +161,7 @@ header {
 
 .get-otp-btn {
   height: 55px;
-  font-size: 16px;
+  font-size: 1.2rem;
   font-weight: bold !important;
   width: 100%;
   border-radius: 8px;
@@ -189,7 +194,6 @@ header {
 }
 
 .pop-btn {
-  font-size: 14px;
   font-weight: 600;
   text-align: left;
   background-color: transparent;
@@ -199,9 +203,47 @@ header {
   margin: 0;
 }
 
+.nav-mobile {
+  display: none !important;
+}
+
 @media (max-width: 991px) {
   .modal-grid {
     display: block;
     padding-right: 2%;
+  }
+
+  header {
+    height: auto;
+  }
+
+  .c-nav-bar {
+    width: 100%;
+    padding: 0 20px !important;
+  }
+
+  .brand-logo {
+    height: 40px;
+    width: 80px;
+  }
+
+  .c-nav-left,
+  .nav-right {
+    display: none !important;
+  }
+
+  .nav-mobile {
+    display: flex !important;
+    margin-right: 0;
+    margin-left: auto;
+  }
+
+  .nav-mobile-search,
+  .nav-mobile-location {
+    color: black !important;
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 }

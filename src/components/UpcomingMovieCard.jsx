@@ -11,7 +11,7 @@ function UpcomingMovieCard({ movie }) {
         />
 
         <div className="bot">
-          <h1>{movie.label}</h1>
+          <h6>{movie.label}</h6>
 
           <div className="card-bottom">
             <span>{movie.language}</span>

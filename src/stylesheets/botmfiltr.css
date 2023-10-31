@@ -1,62 +1,66 @@
-
-.main_btm_filter_container{
-    background: #fff;
-    padding: 26px !important;
-    border-radius: 24px;
-    margin-top: 20px;
+.main_btm_filter_container {
+	background: #fff;
+	padding: 26px !important;
+	border-radius: 24px;
+	margin-top: 20px;
 }
 
-.main_btm_filter2{
-    margin-top: 34px;
+.main_btm_filter2 {
+	margin-top: 34px;
 }
 
-.main_btm_filter_head{
-    display: flex;
-    align-items: center;
-    margin-bottom: 18px;
+.main_btm_filter_head {
+	display: flex;
+	align-items: center;
+	margin-bottom: 18px;
 }
+
 .main_btm_filter_heading {
-    display: flex;
-    margin-bottom: 18px;
+	display: flex;
+	margin-bottom: 18px;
 }
 
-.main_btm_filter_head h1 {
-    margin-bottom: 0;
-    font-size: 18px;
-    color: #101010;
-    font-weight: 700;
-    letter-spacing: -.41px;
-    line-height: 24px;
+.main_btm_filter_head h5 {
+	margin-bottom: 0;
+	color: #101010;
+	font-weight: 700;
+	letter-spacing: -.41px;
+	line-height: 24px;
 }
 
 .main_btm_filter_header_lang {
-    padding-bottom: 10px;
-    display: flex;
-    overflow-x: scroll;
-    scrollbar-width: thin;
+	padding-bottom: 10px;
+	display: flex;
+	overflow-x: scroll;
+	scrollbar-width: thin;
 }
 
 .btm_filter_header_lang {
-    padding-left: 0;
-    margin-right: 16px;
-    margin-left: 0;
+	padding-left: 0;
+	margin-right: 16px;
+	margin-left: 0;
 }
 
 .btm_filter_header_lang a {
-    text-decoration: none;
-    position: relative;
-    padding: 10px 16px;
-    display: block;
-    box-sizing: border-box;
-    color: inherit;
-    min-width: -webkit-max-content;
-    min-width: -moz-max-content;
-    min-width: max-content;
-    font-size: 14px;
-    color: #101010;
-    font-weight: 500;
-    letter-spacing: -.08px;
-    line-height: 20px;
-    border: 1px solid hsla(0, 0%, 6%, .13);
-    border-radius: 96px;
+	text-decoration: none;
+	position: relative;
+	padding: 10px 16px;
+	display: block;
+	box-sizing: border-box;
+	color: inherit;
+	min-width: -webkit-max-content;
+	min-width: -moz-max-content;
+	min-width: max-content;
+	color: #101010;
+	font-weight: 500;
+	letter-spacing: -.08px;
+	line-height: 20px;
+	border: 1px solid hsla(0, 0%, 6%, .13);
+	border-radius: 96px;
+}
+
+@media (max-width: 991px) {
+	.main_btm_filter_container {
+		border-radius: 0;
+	}
 }

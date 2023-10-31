@@ -33,3 +33,17 @@ summary {
 .contactUs-items p {
   margin: 0;
 }
+
+.feedback-radio > .form-check-input {
+  margin-top: 6px;
+}
+
+@media (max-width: 991px) {
+  :root {
+    font-size: 12px;
+  }
+  
+  body {
+    padding-top: 52px;
+  } 
+}

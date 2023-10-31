@@ -4,7 +4,7 @@ import { BsTelephone } from 'react-icons/bs'
 function ContactUs() {
   return (
     <div className="container bg-white p-5 my-5 border" style={{ borderRadius: '30px', userSelect: 'none' }}>
-      <h1 className="fw-bold mb-5">Contact Us</h1>
+      <h3 className="fw-bold mb-5">Contact Us</h3>
 
       <div className='bg-white list-unstyled d-flex flex-column gap-2'>
 

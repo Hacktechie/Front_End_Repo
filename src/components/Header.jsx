@@ -13,11 +13,13 @@ import Popover from 'react-bootstrap/Popover'
 import { useNavigate } from 'react-router-dom'
 import Logout from '../overlays/Logout'
 import { useSelector } from 'react-redux'
+import { LuSearch } from 'react-icons/lu'
+import { GrLocation } from 'react-icons/gr'
 
 function Header() {
 
   const navigate = useNavigate()
-  
+
   const isLoggedIn = useSelector(state => state.auth.isLoggedIn)
   const userInfo = useSelector(state => state.auth.user)
 
@@ -66,10 +68,10 @@ function Header() {
       <Navbar className='c-nav-bar'>
 
         <Navbar.Brand>
-          <img src={logo} height={54} width={108} alt="logo" />
+          <img src={logo} alt="logo" className='brand-logo' />
         </Navbar.Brand>
 
-        <Nav className='fw-semibold gap-3 ms-5'>
+        <Nav className='fw-semibold gap-3 ms-5 c-nav-left'>
 
           <Nav.Link
             className='c-navlink px-3 py-2'
@@ -163,6 +165,20 @@ function Header() {
           </Button>
 
         </Nav>
+
+        {/* Mobile header */}
+        <Nav className="nav-mobile">
+          <Nav.Link className="nav-mobile-search" onClick={() => navigate('/search')}>
+            <LuSearch size={20} />
+            <span>Search</span>
+          </Nav.Link>
+
+          <Nav.Link className="nav-mobile-location">
+            <GrLocation size={20} />
+            <span>Chennai</span>
+          </Nav.Link>
+        </Nav>
+
       </Navbar>
 
       {/* Modals */}

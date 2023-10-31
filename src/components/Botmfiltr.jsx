@@ -22,7 +22,7 @@ const Botmfiltr = () => {
       <div className="main_btm_filter_sub-container">
         <div className="main_btm_filter">
           <div className="main_btm_filter_head">
-            <h1>Explore Latest Movies in Chennai by Language</h1>
+            <h5>Explore Latest Movies in Chennai by Language</h5>
           </div>
 
           <div className="main_btm_filter_header_lang">
@@ -37,7 +37,7 @@ const Botmfiltr = () => {
 
         <div className="main_btm_filter2">
           <div className="main_btm_filter_head">
-            <h1>Explore Latest Movies in Chennai by Genre</h1>
+            <h5>Explore Latest Movies in Chennai by Genre</h5>
           </div>
           <div className="main_btm_filter_header_lang">
 

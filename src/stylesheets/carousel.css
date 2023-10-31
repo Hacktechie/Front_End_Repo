@@ -38,17 +38,23 @@
 }
 
 @media (max-width: 991px) {
+  .carousel-section {
+    padding: 10px 0;
+  }
+  
   .carousel-container {
     width: 100vw;
     left: 0;
   }
 
-  .slick-slider .slick-prev {
-    left: 20px;
+  .carousel-img {
+    border-radius: 10px;
+    aspect-ratio: 4/2;
+    max-height: 200px;
   }
 
-  .slick-slider .slick-next {
-    right: 20px;
+  .slick-prev,
+  .slick-next {
+    display: none !important;
   }
-  
 }

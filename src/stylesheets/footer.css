@@ -1,23 +1,46 @@
 footer {
-    background-color: #f5f7fa;
+	background-color: #f5f7fa;
 }
 
 .footer_row1 {
-    align-items: center;
-    border-bottom: 1px solid silver;
+	align-items: center;
+	border-bottom: 1px solid silver;
 }
 
 .footer_row2 {
-    justify-content: space-between;
+	justify-content: space-between;
 }
 
 .footer_row2 ul {
-    list-style-type: none;
-    line-height: 2;
-    font-weight: 500;
+	list-style-type: none;
+	line-height: 2;
+	font-weight: 500;
 }
 
 .footer_row2 a {
-    text-decoration: none;
-    color: gray;
+	text-decoration: none;
+	color: gray;
+}
+
+@media (max-width: 991px) {
+	.footer_row1 {
+		flex-direction: column;
+		align-items: start;
+	}
+
+	.footer_row1 br {
+		display: none;
+	}
+
+	.footer_row1 > div > a {
+		gap: 10px;
+	}
+	
+	.footer_row2 {
+		flex-direction: column;
+	}
+
+	#mt_list_ws {
+		display: none;
+	}
 }
