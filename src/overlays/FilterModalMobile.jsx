@@ -1,7 +1,9 @@
 import PropTypes from 'prop-types'
+import { lazy } from 'react'
 import { Modal } from 'react-bootstrap'
-import LanguageFilter from '../components/LanguageFilter'
-import FormatFilter from '../components/FormatFilter'
+
+const LanguageFilter = lazy(() => import('../components/LanguageFilter'))
+const FormatFilter = lazy(() => import('../components/FormatFilter'))
 
 function FilterModalMobile({
   show,

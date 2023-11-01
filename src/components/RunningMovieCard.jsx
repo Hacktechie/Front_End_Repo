@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types'
-import { Card } from 'react-bootstrap'
-import { ListGroup } from 'react-bootstrap'
+import { Card, ListGroup } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
 function RunningMovieCard({ movie }) {
@@ -8,7 +7,7 @@ function RunningMovieCard({ movie }) {
   return (
     <Link to={`movies/${movie.id}`} style={{textDecoration: 'none'}}>
       <Card className='runningmovies_cards' key={movie.id}>
-        <Card.Img variant='top' src={movie.imgpath} alt={movie.label} />
+        <Card.Img variant='top' src={movie.imgpath} alt={movie.label} loading='lazy' />
         <Card.Body className='runningmovies_card_body'>
 
           <div>

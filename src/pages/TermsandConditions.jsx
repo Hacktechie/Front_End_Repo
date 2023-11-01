@@ -1,4 +1,6 @@
-import CustomSummary from "../components/CustomSummary"
+import { lazy } from "react"
+
+const CustomSummary = lazy(() => import("../components/CustomSummary"))
 
 function TermsandConditions() {
   return (

@@ -7,6 +7,7 @@ function UpcomingMovieCard({ movie }) {
         <img
           src={movie.imgpath}
           alt={movie.label}
+          loading='lazy'
           style={{ height: '100%', width: '100%' }}
         />
 

@@ -13,24 +13,38 @@ function UpcomingCarousel({ movies, showRunningMovies, setShowRunningMovies }) {
     dots: true,
     infinite: false,
     speed: 500,
-    slidesToShow: 4,
+    slidesToShow: 5,
     responsive: [
+      {
+        breakpoint: 992,
+        settings: {
+          slidesToShow: 4,
+          infinite: true,
+          arrows: false
+        },
+      },
       {
         breakpoint: 768,
         settings: {
           slidesToShow: 3,
+          infinite: true,
+          arrows: false
         },
       },
       {
         breakpoint: 576,
         settings: {
           slidesToShow: 2,
+          infinite: true,
+          arrows: false
         },
       },
       {
-        breakpoint: 380,
+        breakpoint: 360,
         settings: {
           slidesToShow: 1,
+          infinite: false,
+          arrows: false,
         }
       }
     ]
@@ -60,8 +74,7 @@ function UpcomingCarousel({ movies, showRunningMovies, setShowRunningMovies }) {
           itemsToRender.map(movie => (
             <UpcomingMovieCard key={movie.id} movie={movie} />
           ))
-        )
-        }
+        )}
       </Slider>
     </div>
 

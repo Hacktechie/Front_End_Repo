@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom'
 import supabase from '../helpers/supabase'
 import { BsPlayCircle } from 'react-icons/bs'
 import NotFound from './NotFound'
-import { Spinner } from 'react-bootstrap'
+import CustomSpinner from '../components/CustomSpinner'
 import '../stylesheets/moviePage.css'
 
 function MoviePage() {
@@ -42,9 +42,7 @@ function MoviePage() {
       {
         loading ? (
 
-          <div className='c-spinner-container'>
-            <Spinner variant='info' />
-          </div>
+          <CustomSpinner variant='info' size={200} />
 
         ) : movie ? (
 

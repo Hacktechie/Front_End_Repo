@@ -1,13 +1,14 @@
 import PropTypes from 'prop-types'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, lazy, Suspense } from 'react'
 import { Card } from 'react-bootstrap'
 import RunningMovieCard from './RunningMovieCard'
 import UpcomingMovieCard from './UpcomingMovieCard'
 import LanguageFilter from './LanguageFilter'
 import FormatFilter from './FormatFilter'
 import { BiSlider } from 'react-icons/bi'
-import FilterModalMobile from '../overlays/FilterModalMobile'
 import '../stylesheets/topbody.css'
+
+const FilterModalMobile = lazy(() => import('../overlays/FilterModalMobile')) 
 
 const TopBody = ({ movies, showRunningMovies }) => {
 
@@ -116,16 +117,18 @@ const TopBody = ({ movies, showRunningMovies }) => {
       </div>
 
       {/* Filter modal mobile */}
-      <FilterModalMobile
-        show={showFilterModal}
-        hide={() => setShowFilterModal(false)}
-        langFilter={langFilter}
-        setLangFilter={setLangFilter}
-        formatFilter={formatFilter}
-        setFormatFilter={setFormatFilter}
-        showRunningMovies={showRunningMovies}
-        handleClearFilter={handleClearFilter}
-      />
+      <Suspense>
+        <FilterModalMobile
+          show={showFilterModal}
+          hide={() => setShowFilterModal(false)}
+          langFilter={langFilter}
+          setLangFilter={setLangFilter}
+          formatFilter={formatFilter}
+          setFormatFilter={setFormatFilter}
+          showRunningMovies={showRunningMovies}
+          handleClearFilter={handleClearFilter}
+        />
+      </Suspense>
     </div>
   )
 }

@@ -10,6 +10,7 @@ function CarouselComp() {
 
   const settings = {
     slidesToShow: 3,
+    lazyLoading: true,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 2000,

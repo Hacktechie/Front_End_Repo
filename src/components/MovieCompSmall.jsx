@@ -16,6 +16,7 @@ function MovieCompSmall({ movie, hide }) {
             alt={movie.label}
             height={52}
             width={55}
+            loading='lazy'
             className='rounded' />
         </div>
         

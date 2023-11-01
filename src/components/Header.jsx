@@ -1,20 +1,17 @@
 import '../stylesheets/header.css'
-import logo from '../assets/logo.avif'
-import Nav from 'react-bootstrap/Nav'
-import Navbar from 'react-bootstrap/Navbar'
-import Button from 'react-bootstrap/Button'
-import { FaUserAlt, FaGooglePlay, FaApple } from 'react-icons/fa'
-import { useState } from 'react'
-import MoviesModal from '../overlays/MoviesModal'
-import CinemaModal from '../overlays/CinemaModal'
-import LoginModal from '../overlays/LoginModal'
-import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
-import Popover from 'react-bootstrap/Popover'
-import { useNavigate } from 'react-router-dom'
-import Logout from '../overlays/Logout'
+import { useState, lazy, Suspense } from 'react'
 import { useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
+import { Nav, Navbar, Button, Popover, OverlayTrigger } from 'react-bootstrap'
+import { FaUserAlt, FaGooglePlay, FaApple } from 'react-icons/fa'
 import { LuSearch } from 'react-icons/lu'
 import { GrLocation } from 'react-icons/gr'
+import logo from '../assets/logo.avif'
+
+const MoviesModal = lazy(() => import('../overlays/MoviesModal'))
+const CinemaModal = lazy(() => import('../overlays/CinemaModal'))
+const LoginModal = lazy(() => import('../overlays/LoginModal'))
+const Logout = lazy(() => import('../overlays/Logout'))
 
 function Header() {
 
@@ -184,27 +181,37 @@ function Header() {
       {/* Modals */}
 
       {showMovies &&
-        <MoviesModal
-          show={showMovies}
-          hide={() => setShowMovies(false)} />
+        <Suspense>
+          <MoviesModal
+            show={showMovies}
+            hide={() => setShowMovies(false)} />
+        </Suspense>
       }
 
       {showCinema &&
-        <CinemaModal
-          show={showCinema}
-          hide={() => setShowCinema(false)} />
+        <Suspense>
+
+          <CinemaModal
+            show={showCinema}
+            hide={() => setShowCinema(false)} />
+        </Suspense>
       }
 
       {showLoginModal &&
-        <LoginModal
-          show={showLoginModal}
-          hide={() => setShowLoginModal(false)} />
+        <Suspense>
+          <LoginModal
+            show={showLoginModal}
+            hide={() => setShowLoginModal(false)} />
+        </Suspense>
       }
 
       {showLogOut &&
-        <Logout
-          show={showLogOut}
-          hide={() => setShowLogOut(false)} />}
+        <Suspense>
+          <Logout
+            show={showLogOut}
+            hide={() => setShowLogOut(false)} />
+        </Suspense>
+      }
 
     </header>
   )

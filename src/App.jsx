@@ -1,23 +1,26 @@
-import { useEffect } from "react"
+import { useEffect, lazy, Suspense } from "react"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import { useDispatch } from "react-redux"
 import { login } from "./redux/slices/authSlice"
 import Header from "./components/Header"
 import Home from "./pages/Home"
-import Profile from "./pages/Profile"
-import TermsandConditions from "./pages/TermsandConditions"
-import Faq from "./pages/Faq"
-import ContactUs from "./pages/ContactUs"
-import Feedback from "./pages/Feedback"
-import Orders from "./pages/Orders"
 import Footer from "./components/Footer"
-import SearchBarPage from './pages/SearchBarPage'
 import ScrollToTop from './components/ScrollToTop'
 import supabase from "./helpers/supabase"
 import fetchData from "./helpers/fetchData"
-import MoviePage from "./pages/MoviePage"
-import NotFound from "./pages/NotFound"
 import MobileNav from "./components/MobileNav"
+import NotFound from "./pages/NotFound"
+import CustomSpinner from './components/CustomSpinner'
+
+// Lazy loaded comps
+const Profile = lazy(() => import("./pages/Profile"))
+const TermsandConditions = lazy(() => import("./pages/TermsandConditions"))
+const Faq = lazy(() => import("./pages/Faq"))
+const ContactUs = lazy(() => import("./pages/ContactUs"))
+const Feedback = lazy(() => import("./pages/Feedback"))
+const Orders = lazy(() => import("./pages/Orders"))
+const SearchBarPage = lazy(() => import('./pages/SearchBarPage'))
+const MoviePage = lazy(() => import("./pages/MoviePage"))
 
 function App() {
 
@@ -47,22 +50,24 @@ function App() {
       <Router>
         <ScrollToTop /> {/* Scrolls to top whenever route changes */}
         <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/termsandconditions" element={<TermsandConditions />} />
-          <Route path="/faq" element={<Faq />} />
-          <Route path="/contactus" element={<ContactUs />} />
-          <Route path="/feedback" element={<Feedback />} />
-          <Route path="/myorders" element={<Orders />} />
-          <Route path="/search" element={<SearchBarPage />} />
+        <Suspense fallback={<CustomSpinner variant='info' size={100} />}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/termsandconditions" element={<TermsandConditions />} />
+            <Route path="/faq" element={<Faq />} />
+            <Route path="/contactus" element={<ContactUs />} />
+            <Route path="/feedback" element={<Feedback />} />
+            <Route path="/myorders" element={<Orders />} />
+            <Route path="/search" element={<SearchBarPage />} />
 
-          {/* Dynamic Movies Route */}
-          <Route path="/movies/:id" element={<MoviePage />} />
+            {/* Dynamic Movies Route */}
+            <Route path="/movies/:id" element={<MoviePage />} />
 
-          {/* Fallback for invalid routes */}
-          <Route path='*' element={<NotFound/>} />
-        </Routes>
+            {/* Fallback for invalid routes */}
+            <Route path='*' element={<NotFound />} />
+          </Routes>
+        </Suspense>
         <Footer />
         <MobileNav />
       </Router>
