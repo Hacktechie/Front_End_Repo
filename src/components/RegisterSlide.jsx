@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types'
-import { useState } from 'react'
 import { Formik, Form, Field, ErrorMessage } from "formik"
 import { Button } from 'react-bootstrap'
 import { useDispatch } from 'react-redux'
@@ -7,10 +6,9 @@ import { login } from '../redux/slices/authSlice'
 import * as Yup from 'yup'
 import supabase from '../helpers/supabase'
 
-function RegisterSlide({ hide }) {
+function RegisterSlide({ hide, setLoading, setErr }) {
 
   const dispatch = useDispatch()
-  const [err, setErr] = useState('')
 
   // Schema for Validation
   const validationSchema = Yup.object().shape({
@@ -27,6 +25,7 @@ function RegisterSlide({ hide }) {
 
   // Creates an new user in DB and logs in the created user
   async function handleSubmit(values) {
+    setLoading(true)
     const { data, error } = await supabase.auth.signUp({
       email: values.email,
       password: values.password,
@@ -47,6 +46,7 @@ function RegisterSlide({ hide }) {
       dispatch(login(data))
       hide() // Hides Modal
     }
+    setLoading(false)
   }
 
   return (
@@ -95,14 +95,14 @@ function RegisterSlide({ hide }) {
           </Button>
         </Form>
       </Formik>
-
-      {err && <small className='d-block text-center text-danger mt-3'>{err}</small>}
     </>
   )
 }
 
 RegisterSlide.propTypes = {
   hide: PropTypes.func,
+  setLoading: PropTypes.func,
+  setErr: PropTypes.func
 }
 
 export default RegisterSlide

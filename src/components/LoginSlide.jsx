@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types'
-import { useState } from 'react'
 import { Formik, Form, Field, ErrorMessage } from "formik"
 import { Button } from 'react-bootstrap'
 import { useDispatch } from 'react-redux'
@@ -7,11 +6,9 @@ import { login } from '../redux/slices/authSlice'
 import * as Yup from 'yup'
 import supabase from '../helpers/supabase'
 
-function LoginSlide({ hide }) {
+function LoginSlide({ hide, setLoading, setErr }) {
 
   const dispatch = useDispatch()
-
-  const [err, setErr] = useState('')
 
   const validationSchema = Yup.object().shape({
     email: Yup.string()
@@ -23,6 +20,7 @@ function LoginSlide({ hide }) {
   })
 
   async function handleSubmit(values) {
+    setLoading(true)
     const { data: user, error } = await supabase.auth.signInWithPassword({
       email: values.email,
       password: values.password
@@ -34,6 +32,7 @@ function LoginSlide({ hide }) {
       dispatch(login(user))
       hide()
     }
+    setLoading(false)
   }
 
   return (
@@ -51,6 +50,7 @@ function LoginSlide({ hide }) {
             placeholder="Enter Email"
             name="email"
             className='p-4 fw-bold w-100 user-input'
+            onFocus={() => setErr('')}
           />
           <ErrorMessage name="email" component="div" className='text-danger' />
 
@@ -59,6 +59,7 @@ function LoginSlide({ hide }) {
             placeholder="Enter Password"
             name="password"
             className='p-4 fw-bold w-100 mt-4 user-input'
+            onFocus={() => setErr('')}
           />
           <ErrorMessage name="password" component="div" className='text-danger' />
 
@@ -71,14 +72,14 @@ function LoginSlide({ hide }) {
           </Button>
         </Form>
       </Formik>
-
-      {err && <small className='d-block text-center text-danger mt-3'>{err}</small>}
     </>
   )
 }
 
 LoginSlide.propTypes = {
   hide: PropTypes.func,
+  setLoading: PropTypes.func,
+  setErr: PropTypes.func
 }
 
 export default LoginSlide
