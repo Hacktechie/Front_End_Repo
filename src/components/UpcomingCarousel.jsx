@@ -43,7 +43,7 @@ function UpcomingCarousel({ movies, showRunningMovies, setShowRunningMovies }) {
         breakpoint: 360,
         settings: {
           slidesToShow: 1,
-          infinite: false,
+          infinite: true,
           arrows: false,
         }
       }
