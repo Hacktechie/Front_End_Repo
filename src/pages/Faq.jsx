@@ -4,10 +4,10 @@ const CustomSummary = lazy(() => import("../components/CustomSummary"))
 
 function Faq() {
   return (
-    <div className="container bg-white p-5 my-5 border" style={{ borderRadius: '30px' }}>
-      <h3 className="fw-bold mb-5">FAQ</h3>
+    <div className="container bg-white p-5 my-3 my-lg-5 border" style={{ borderRadius: '30px' }}>
+      <h3 className="fw-bold mb-4 mb-lg-5">FAQ</h3>
 
-      <ul className='bg-white list-unstyled d-flex flex-column gap-2 summary-list'>
+      <ul className='bg-white list-unstyled d-flex flex-column gap-1 gap-lg-2 summary-list'>
 
         <CustomSummary
           summary='Will Paytm TicketNew ask for my personal and bank details to book tickets?'

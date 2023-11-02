@@ -15,9 +15,9 @@ function SearchBarPage() {
 
   const bodyStyles = {
     position: 'relative',
-    zIndex: 2,
+    zIndex: 1,
     marginTop: '-92px',
-    paddingTop: '70px',
+    paddingTop: '92px',
     backgroundColor: '#f2f2f2'
   }
 

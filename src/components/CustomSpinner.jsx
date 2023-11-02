@@ -8,7 +8,7 @@ function CustomSpinner({ size, variant }) {
     justifyContent: 'center',
     alignItems: 'center',
     boxSizing: 'content-box',
-    height: '100%',
+    height: 'calc(100vh - 100px)',
     margin: '20px'
   }
 

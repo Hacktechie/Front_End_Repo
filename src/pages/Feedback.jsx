@@ -4,12 +4,12 @@ function Feedback() {
   return (
     <Form>
       <div
-        className="container bg-white p-5 my-5 border"
+        className="container bg-white p-5 my-3 my-lg-5 border"
         style={{ borderRadius: '30px', userSelect: 'none' }}>
 
-        <h3 className="fw-bold mb-5">Feedback</h3>
+        <h3 className="fw-bold mb-4 mb-lg-5">Feedback</h3>
 
-        <div className="d-flex flex-column gap-4 mb-5">
+        <div className="d-flex flex-column gap-3 gap-lg-4 mb-4 mb-lg-5">
           <h5>Please select Feedback Type</h5>
 
           <Form.Check
@@ -35,7 +35,7 @@ function Feedback() {
 
         </div>
 
-        <div className="d-flex flex-column gap-4">
+        <div className="d-flex flex-column gap-3 gap-lg-4">
           <h5>Please enter your eail & phone number</h5>
 
           <div>

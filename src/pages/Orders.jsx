@@ -1,6 +1,6 @@
 function Orders() {
   return (
-    <div className="container bg-white p-5 my-5 border" style={{borderRadius: '20px'}}>
+    <div className="container bg-white p-5 my-3 my-lg-5 border" style={{borderRadius: '20px'}}>
       <h4 className="fw-bold mb-5">My orders</h4>
 
       <div>

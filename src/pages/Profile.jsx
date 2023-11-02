@@ -48,7 +48,7 @@ function Profile() {
 
       </div>
 
-      <div className='d-flex flex-column align-items-center my-4'>
+      <div className='d-flex flex-column align-items-center mt-4'>
         <ul className='bg-white list-unstyled w-100 p-4 border c-nav-list'>
 
           <li>
